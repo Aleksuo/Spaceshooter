@@ -12,6 +12,7 @@ package spaceshooter.spaceshooter;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("hello world");
+        Sovellus peli = new Sovellus();
+        peli.setVisible(true);
     }
 }

@@ -11,8 +11,8 @@ package spaceshooter.dom;
  */
 public class Paivitys extends Objekti implements Poimittava{
 
-    public Paivitys(int x, int y, int vx, int vy) {
-        super(x, y, vx, vy);
+    public Paivitys(int x, int y, int vx, int vy,int w, int h) {
+        super(x, y, vx, vy,w,h);
     }
     
 }

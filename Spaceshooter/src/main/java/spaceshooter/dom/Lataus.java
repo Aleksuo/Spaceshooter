@@ -11,8 +11,8 @@ package spaceshooter.dom;
  */
 public class Lataus extends Objekti implements Poimittava {
 
-    public Lataus(int x, int y, int vx, int vy) {
-        super(x, y, vx, vy);
+    public Lataus(int x, int y, int vx, int vy, int w, int h) {
+        super(x, y, vx, vy,w,h);
     }
    
 }

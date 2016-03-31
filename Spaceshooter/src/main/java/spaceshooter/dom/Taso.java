@@ -22,6 +22,7 @@ public class Taso extends JPanel{
     private Pelaaja pelaaja;
     
     public Taso(){
+        this.setBackground(Color.black);
         this.pelaaja = new Pelaaja(0,0,0,0,0,0);
     }
     
@@ -33,8 +34,8 @@ public class Taso extends JPanel{
     }
     
     public void draw(Graphics g){
-        Graphics2D g2d = (Graphics2D)g;
-        pelaaja.draw(g2d);
+        
+        pelaaja.draw(g);
         
     }
     

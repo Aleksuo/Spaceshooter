@@ -26,15 +26,15 @@ public class Pistelaskuri {
     }
 
     public void lisaa(int pisteet) {
-        if (pisteet > 0) {
+        if (pisteet >= 0) {
             this.pisteet += pisteet;
         }
     }
 
     public void vahenna(int pisteet) {
-        if (pisteet > 0) {
+        if (pisteet >= 0) {
             this.pisteet -= pisteet;
-            if (this.pisteet < 0) {
+            if (this.pisteet <= 0) {
                 this.pisteet = 0;
             }
         }

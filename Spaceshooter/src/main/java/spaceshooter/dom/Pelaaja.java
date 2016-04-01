@@ -15,9 +15,10 @@ import javax.swing.ImageIcon;
  *
  * @author Aleksi
  */
-public class Pelaaja extends Objekti {
+public class Pelaaja extends Objekti implements Collidable {
     
     private int alukset;
+    private boolean onElossa;
     
     private Image sprite;
 
@@ -26,6 +27,7 @@ public class Pelaaja extends Objekti {
         ImageIcon icon = new ImageIcon("./Resources/Sprites/alus.png");
         this.sprite = icon.getImage();
         this.alukset = 3;
+        this.onElossa = true;
     }
     
     public void draw(Graphics g){
@@ -38,8 +40,50 @@ public class Pelaaja extends Objekti {
             this.setPosX(piste.x);
             this.setPosY(piste.y);
         }
+     
+    
         
-        
+    }
+
+    public int getAlukset() {
+        return alukset;
+    }
+
+    public void setAlukset(int alukset) {
+        this.alukset = alukset;
+    }
+
+    public Image getSprite() {
+        return sprite;
+    }
+
+    public void setSprite(Image sprite) {
+        this.sprite = sprite;
+    }
+
+    public boolean OnElossa() {
+        return onElossa;
+    }
+
+    public void setOnElossa(boolean onElossa) {
+        this.onElossa = onElossa;
+    }
+    
+    
+    
+    
+
+    @Override
+    public void onCollision(Objekti obj) {
+        if(obj instanceof Vihollinen){
+            if(this.alukset > 0){
+                this.alukset--;
+                if(this.alukset == 0){
+                    this.onElossa = false;
+                }
+            }
+            
+        }
     }
             
     

@@ -5,13 +5,9 @@
  */
 package spaceshooter.dom;
 
-import java.awt.BasicStroke;
+
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Ellipse2D;
 import javax.swing.JPanel;
 
 /**
@@ -23,7 +19,7 @@ public class Taso extends JPanel{
     
     public Taso(){
         this.setBackground(Color.black);
-        this.pelaaja = new Pelaaja(0,0,0,0,0,0);
+        this.pelaaja = new Pelaaja(0,0,0,0);
     }
     
     
@@ -31,12 +27,17 @@ public class Taso extends JPanel{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         draw(g);
+        repaint();
     }
     
     public void draw(Graphics g){
         
         pelaaja.draw(g);
         
+    }
+    
+    public void update(){
+        pelaaja.update(this);
     }
     
     

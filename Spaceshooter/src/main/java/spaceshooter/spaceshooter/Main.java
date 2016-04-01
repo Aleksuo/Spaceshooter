@@ -14,5 +14,6 @@ public class Main {
     public static void main(String[] args) {
         Sovellus peli = new Sovellus();
         peli.setVisible(true);
+        peli.loop();
     }
 }

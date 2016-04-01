@@ -76,7 +76,7 @@ public class Pelaaja extends Objekti implements Collidable {
     @Override
     public void onCollision(Objekti obj) {
         if(obj instanceof Vihollinen){
-            if(this.alukset > 0){
+            if(this.alukset >= 1){
                 this.alukset--;
                 if(this.alukset == 0){
                     this.onElossa = false;

@@ -62,6 +62,7 @@ public class PistelaskuriTest {
     
     @Test
     public void lisaysEiVahennaPisteita(){
+        laskuri.lisaa(-1);
         laskuri.lisaa(-100);
         assertEquals(0, laskuri.getPisteet());
         laskuri.lisaa(200);

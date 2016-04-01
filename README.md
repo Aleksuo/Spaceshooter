@@ -5,6 +5,6 @@ Aiheena perinteinen shoot'em up - peli, jossa pelaajan on päämääränä selvi
 
 **Dokumentaatio**
 
--[Aiheen kuvaus](dokumentointi/aihemaarittely.md)
--[Tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
+- [Aiheen kuvaus](dokumentointi/aihemaarittely.md)
+- [Tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
 

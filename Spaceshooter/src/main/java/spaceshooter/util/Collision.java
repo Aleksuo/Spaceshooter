@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceshooter.spaceshooter;
+package spaceshooter.util;
+
+import java.awt.Rectangle;
 
 /**
  *
  * @author Aleksi
  */
-public class Main {
+public final class Collision {
 
-    public static void main(String[] args) {
-        Sovellus peli = new Sovellus();
-        peli.setVisible(true);
-        peli.loop();
+    public boolean isCollision(Rectangle rect1, Rectangle rect2) {
+        return rect1.intersects(rect2);
     }
 }

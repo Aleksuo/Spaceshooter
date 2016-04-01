@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceshooter.spaceshooter;
+package spaceshooter.dom;
 
 /**
  *
  * @author Aleksi
  */
-public class Main {
+public interface Poimittava {
 
-    public static void main(String[] args) {
-        Sovellus peli = new Sovellus();
-        peli.setVisible(true);
-        peli.loop();
-    }
 }

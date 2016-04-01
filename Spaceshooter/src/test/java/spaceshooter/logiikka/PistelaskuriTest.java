@@ -71,6 +71,32 @@ public class PistelaskuriTest {
     
     @Test
     public void vahennysVahentaaPisteita(){
-        
+        laskuri.lisaa(500);
+        laskuri.vahenna(250);
+        assertEquals(250, laskuri.getPisteet());
+        laskuri.vahenna(250);
+        assertEquals(0, laskuri.getPisteet());
+    }
+    
+    @Test
+    public void vahennysEiLisaaPisteita(){
+        laskuri.vahenna(-200);
+        assertEquals(0, laskuri.getPisteet());
+    }
+    
+    @Test
+    public void vahennysEiVahennaNegatiiviseksi(){
+        laskuri.vahenna(100);
+        assertEquals(0, laskuri.getPisteet());
+        laskuri.lisaa(100);
+        laskuri.vahenna(150);
+        assertEquals(0,laskuri.getPisteet());
+    }
+    
+    @Test
+    public void nollauksenJalkeenEiPisteita(){
+        laskuri.lisaa(400);
+        laskuri.nollaa();
+        assertEquals(0, laskuri.getPisteet());
     }
 }

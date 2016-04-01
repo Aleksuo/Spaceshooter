@@ -21,9 +21,6 @@ public class Pelaaja extends Objekti {
     public Pelaaja(int x, int y, int vx, int vy, int w, int h) {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/alus.png");
-        if(icon == null){
-            System.out.println("Virhe");
-        }
         this.sprite = icon.getImage();
     }
     

@@ -10,9 +10,10 @@ package spaceshooter.logiikka;
  * @author Aleksi
  */
 public class Pistelaskuri {
+
     private int pisteet;
-    
-    public Pistelaskuri(){
+
+    public Pistelaskuri() {
         this.pisteet = 0;
     }
 
@@ -23,10 +24,23 @@ public class Pistelaskuri {
     public void setPisteet(int pisteet) {
         this.pisteet = pisteet;
     }
-    
-    public void lisaa(int pisteet){
-        if(pisteet > 0){
+
+    public void lisaa(int pisteet) {
+        if (pisteet > 0) {
             this.pisteet += pisteet;
         }
+    }
+
+    public void vahenna(int pisteet) {
+        if (pisteet > 0) {
+            this.pisteet -= pisteet;
+            if (this.pisteet < 0) {
+                this.pisteet = 0;
+            }
+        }
+    }
+    
+    public void nollaa(){
+        this.pisteet = 0;
     }
 }

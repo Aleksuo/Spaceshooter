@@ -5,6 +5,8 @@
  */
 package spaceshooter.dom;
 
+import java.awt.Rectangle;
+
 /**
  *
  * @author Aleksi
@@ -78,5 +80,8 @@ public class Objekti {
         this.height = height;
     }
     
+    public Rectangle getHitbox(){
+        return new Rectangle(this.posX,this.posX,this.getWidth(),this.getHeight());
+    }
     
 }

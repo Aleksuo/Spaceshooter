@@ -12,22 +12,23 @@ import java.awt.Rectangle;
  * @author Aleksi
  */
 public class Objekti {
+
     private int posX;
     private int posY;
-    
+
     private int velX;
     private int velY;
-    
+
     private int width;
     private int height;
-    
-    public Objekti(int x, int y, int vx, int vy, int w, int h){
+
+    public Objekti(int x, int y, int vx, int vy, int w, int h) {
         this.posX = x;
         this.posY = y;
-        
+
         this.velX = vx;
         this.velY = vy;
-        
+
         this.width = w;
         this.height = h;
     }
@@ -79,9 +80,9 @@ public class Objekti {
     public void setHeight(int height) {
         this.height = height;
     }
-    
-    public Rectangle getHitbox(){
-        return new Rectangle(this.posX,this.posX,this.getWidth(),this.getHeight());
+
+    public Rectangle getHitbox() {
+        return new Rectangle(this.posX, this.posX, this.getWidth(), this.getHeight());
     }
-    
+
 }

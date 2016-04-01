@@ -20,11 +20,11 @@ public class Sovellus extends JFrame {
     private boolean pelissa;
 
     public Sovellus() {
-        this.InitUI();
+        this.initUI();
         pelissa = true;
     }
 
-    public void InitUI() {
+    public void initUI() {
         taso = new Taso();
         this.add(taso);
         this.setSize(500, 500);

@@ -17,24 +17,25 @@ import static org.junit.Assert.*;
  * @author Aleksi
  */
 public class PelaajaTest {
+
     Pelaaja pelaaja;
-    
+
     public PelaajaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        pelaaja = new Pelaaja(0,0,0,0);
+        pelaaja = new Pelaaja(0, 0, 0, 0);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -45,31 +46,30 @@ public class PelaajaTest {
     // @Test
     // public void hello() {}
     @Test
-    public void pelaajallaKolmeAlustaAlussa(){
+    public void pelaajallaKolmeAlustaAlussa() {
         assertEquals(3, pelaaja.getAlukset());
     }
-    
-    @Test 
-    public void pelaajaElossaLuonnissa(){
-        assertEquals(true, pelaaja.OnElossa());
-    }
-    
-    
+
     @Test
-    public void tormaysViholliseenVahentaaAluksia(){
-        Vihollinen dummy = new Vihollinen(0,0,0,0,0,0);
-        pelaaja.onCollision(dummy);
-        assertEquals(2,pelaaja.getAlukset());
-        pelaaja.onCollision(dummy);
-        assertEquals(1,pelaaja.getAlukset());
+    public void pelaajaElossaLuonnissa() {
+        assertEquals(true, pelaaja.isAlive());
     }
-    
+
     @Test
-    public void pelaajaEiElossaAlustenLoppuessa(){
-        Vihollinen dummy = new Vihollinen(0,0,0,0,0,0);
+    public void tormaysViholliseenVahentaaAluksia() {
+        Vihollinen dummy = new Vihollinen(0, 0, 0, 0, 0, 0);
+        pelaaja.onCollision(dummy);
+        assertEquals(2, pelaaja.getAlukset());
+        pelaaja.onCollision(dummy);
+        assertEquals(1, pelaaja.getAlukset());
+    }
+
+    @Test
+    public void pelaajaEiElossaAlustenLoppuessa() {
+        Vihollinen dummy = new Vihollinen(0, 0, 0, 0, 0, 0);
         pelaaja.onCollision(dummy);
         pelaaja.onCollision(dummy);
         pelaaja.onCollision(dummy);
-        assertEquals(false, pelaaja.OnElossa());
+        assertEquals(false, pelaaja.isAlive());
     }
 }

@@ -16,33 +16,31 @@ import javax.swing.ImageIcon;
  * @author Aleksi
  */
 public class Pelaaja extends Objekti implements Collidable {
-    
+
     private int alukset;
-    private boolean onElossa;
-    
+    private boolean isAlive;
+
     private Image sprite;
 
-    public Pelaaja(int x, int y,int w, int h) {
+    public Pelaaja(int x, int y, int w, int h) {
         super(x, y, 0, 0, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/alus.png");
         this.sprite = icon.getImage();
         this.alukset = 3;
-        this.onElossa = true;
+        this.isAlive = true;
     }
-    
-    public void draw(Graphics g){
+
+    public void draw(Graphics g) {
         g.drawImage(this.sprite, this.getPosX(), this.getPosY(), null);
     }
-    
-    public void update(Taso taso){
+
+    public void update(Taso taso) {
         Point piste = taso.getMousePosition();
-        if(piste != null){
+        if (piste != null) {
             this.setPosX(piste.x);
             this.setPosY(piste.y);
         }
-     
-    
-        
+
     }
 
     public int getAlukset() {
@@ -61,30 +59,25 @@ public class Pelaaja extends Objekti implements Collidable {
         this.sprite = sprite;
     }
 
-    public boolean OnElossa() {
-        return onElossa;
+    public boolean isAlive() {
+        return isAlive;
     }
 
-    public void setOnElossa(boolean onElossa) {
-        this.onElossa = onElossa;
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
     }
-    
-    
-    
-    
 
     @Override
     public void onCollision(Objekti obj) {
-        if(obj instanceof Vihollinen){
-            if(this.alukset >= 1){
+        if (obj instanceof Vihollinen) {
+            if (this.alukset >= 1) {
                 this.alukset--;
-                if(this.alukset == 0){
-                    this.onElossa = false;
+                if (this.alukset == 0) {
+                    this.isAlive = false;
                 }
             }
-            
+
         }
     }
-            
-    
+
 }

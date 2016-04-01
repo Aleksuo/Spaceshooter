@@ -10,5 +10,5 @@ package spaceshooter.dom;
  * @author Aleksi
  */
 public interface Poimittava {
-    
+
 }

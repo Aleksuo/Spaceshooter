@@ -39,8 +39,8 @@ public class Pistelaskuri {
             }
         }
     }
-    
-    public void nollaa(){
+
+    public void nollaa() {
         this.pisteet = 0;
     }
 }

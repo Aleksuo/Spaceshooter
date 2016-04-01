@@ -10,5 +10,6 @@ package spaceshooter.dom;
  * @author Aleksi
  */
 public interface Collidable {
+
     public void onCollision(Objekti obj);
 }

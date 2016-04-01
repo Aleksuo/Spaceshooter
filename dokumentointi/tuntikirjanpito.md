@@ -5,3 +5,4 @@ Päivä | Tunnit | Kuvaus
 23.3.2016 | 2.0h | Luokkien suunnittelua ja toteutusta
 29.3.2016 | 0.5h | Domain luokkien toteutusta
 31.3.2016 | 3.0h | Sovelluslogiikan toteutusta ja testejä
+1.4.2016  | 4.0h | Dokumentaatiota ja testejä

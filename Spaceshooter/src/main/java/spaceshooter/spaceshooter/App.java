@@ -14,7 +14,7 @@ import spaceshooter.dom.Level;
  *
  * @author Aleksi
  */
-public class App extends JFrame{
+public class App extends JFrame {
 
     private Level taso;
     private boolean inGame;
@@ -33,7 +33,6 @@ public class App extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         taso.requestFocus();
-        
 
         this.setCursor(this.getToolkit().createCustomCursor(
                 new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
@@ -42,17 +41,17 @@ public class App extends JFrame{
     }
 
     public void loop() {
-        double next_game_tick = System.currentTimeMillis();
+        double nextGameTick = System.currentTimeMillis();
         int loops;
 
         while (inGame) {
             loops = 0;
-            while (System.currentTimeMillis() > next_game_tick
+            while (System.currentTimeMillis() > nextGameTick
                     && loops < 5) {
 
                 taso.tick();
 
-                next_game_tick += 1000 / 15;
+                nextGameTick += 1000 / 15;
                 loops++;
 
             }
@@ -60,7 +59,5 @@ public class App extends JFrame{
         }
 
     }
-
-    
 
 }

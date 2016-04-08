@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceshooter.dom.Components.Collision;
+package spaceshooter.dom.components;
 
-import spaceshooter.dom.Components.Component;
+import spaceshooter.dom.components.Component;
 import spaceshooter.dom.GameObject;
 
 /**
@@ -16,7 +16,8 @@ public class CollisionComponent extends Component {
 
     public CollisionComponent() {
     }
-    
-    public void onCollision(Object obj){}
-      
+
+    public void onCollision(Object obj) {
+    }
+
 }

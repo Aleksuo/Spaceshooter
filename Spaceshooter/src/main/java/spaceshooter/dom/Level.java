@@ -63,15 +63,15 @@ public class Level extends JPanel implements KeyListener {
         removeDeadObjects();
         System.out.println("Objekteja: " + objektit.size());
     }
-    
-    public void update(){
+
+    public void update() {
         for (GameObject o : objektit) {
             o.update(this);
         }
     }
-    
+
     //todo eriytä omaan luokkaan
-    public void checkCollisions(){
+    public void checkCollisions() {
         for (GameObject o : objektit) {
             if (o.isAlive()) {
                 for (GameObject t : objektit) {
@@ -89,8 +89,8 @@ public class Level extends JPanel implements KeyListener {
 
         }
     }
-    
-    public void removeDeadObjects(){
+
+    public void removeDeadObjects() {
         for (Iterator<GameObject> iterator = objektit.iterator(); iterator.hasNext();) {
             GameObject obj = iterator.next();
             if (!obj.isAlive()) {

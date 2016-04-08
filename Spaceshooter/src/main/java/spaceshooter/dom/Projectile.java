@@ -19,28 +19,27 @@ public class Projectile extends ImageObject {
         this.setSprite(icon.getImage());
         this.setIsAlive(true);
     }
-    
+
     @Override
-    public void update(Level taso){
+    public void update(Level taso) {
         move();
-        if(this.getPosY() < 0){
+        if (this.getPosY() < 0) {
             this.setIsAlive(false);
         }
     }
 
     @Override
     public void onCollision(GameObject obj) {
-        if(obj instanceof Enemy){
+        if (obj instanceof Enemy) {
             this.setIsAlive(false);
         }
     }
-    
-    public void move(){
+
+    public void move() {
         //float dx = this.getPosX() + this.getVelX();
         float dy = this.getPosY() - this.getVelY();
-       
+
         this.setPosY(dy);
     }
-    
-    
+
 }

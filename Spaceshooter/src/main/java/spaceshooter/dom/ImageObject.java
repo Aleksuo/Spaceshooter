@@ -20,7 +20,7 @@ public class ImageObject extends GameObject {
     public ImageObject(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
     }
-    
+
     public Image getSprite() {
         return sprite;
     }
@@ -28,9 +28,9 @@ public class ImageObject extends GameObject {
     public void setSprite(Image sprite) {
         this.sprite = sprite;
     }
-    
+
     public void draw(Graphics g) {
-        g.drawImage(this.getSprite(), (int)this.getPosX(),(int)this.getPosY(), null);
+        g.drawImage(this.getSprite(), (int) this.getPosX(), (int) this.getPosY(), null);
     }
-    
+
 }

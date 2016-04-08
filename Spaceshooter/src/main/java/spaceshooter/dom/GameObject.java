@@ -21,7 +21,7 @@ public class GameObject {
 
     private int width;
     private int height;
-    
+
     private boolean isAlive;
 
     public GameObject(float x, float y, float vx, float vy, int w, int h) {
@@ -34,10 +34,12 @@ public class GameObject {
         this.width = w;
         this.height = h;
     }
-    
-    public void update(Level taso){}
-    
-    public void onCollision(GameObject obj){}
+
+    public void update(Level taso) {
+    }
+
+    public void onCollision(GameObject obj) {
+    }
 
     public float getPosX() {
         return posX;
@@ -94,11 +96,9 @@ public class GameObject {
     public void setIsAlive(boolean isAlive) {
         this.isAlive = isAlive;
     }
-    
-    
 
     public Rectangle getHitbox() {
-        return new Rectangle((int)this.posX, (int)this.posY, this.getWidth(), this.getHeight());
+        return new Rectangle((int) this.posX, (int) this.posY, this.getWidth(), this.getHeight());
     }
 
 }

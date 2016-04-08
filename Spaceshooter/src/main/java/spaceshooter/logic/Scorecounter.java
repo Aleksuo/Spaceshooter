@@ -25,8 +25,6 @@ public class Scorecounter {
         this.score = score;
     }
 
-   
-
     public void add(int pisteet) {
         if (pisteet > 0) {
             this.score += pisteet;

@@ -14,6 +14,6 @@ import java.awt.Rectangle;
 public final class Collision {
 
     static public boolean isCollision(Rectangle rect1, Rectangle rect2) {
-        return (rect1.intersects(rect2)&&rect2.intersects(rect1));
+        return (rect1.intersects(rect2) && rect2.intersects(rect1));
     }
 }

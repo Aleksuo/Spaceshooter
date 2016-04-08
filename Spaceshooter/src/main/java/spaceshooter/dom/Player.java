@@ -5,7 +5,6 @@
  */
 package spaceshooter.dom;
 
-
 import java.awt.Point;
 import javax.swing.ImageIcon;
 
@@ -13,7 +12,7 @@ import javax.swing.ImageIcon;
  *
  * @author Aleksi
  */
-public class Player extends ImageObject{
+public class Player extends ImageObject {
 
     private int ships;
     private Weapon weapon;
@@ -37,7 +36,7 @@ public class Player extends ImageObject{
         }
 
     }
-    
+
     @Override
     public void onCollision(GameObject obj) {
         if (obj instanceof Enemy) {
@@ -68,11 +67,5 @@ public class Player extends ImageObject{
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
-    
-    
-
-    
-    
-    
 
 }

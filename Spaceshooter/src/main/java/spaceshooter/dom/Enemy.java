@@ -19,25 +19,25 @@ public class Enemy extends ImageObject {
         this.setSprite(icon.getImage());
         this.setIsAlive(true);
     }
-    
+
     @Override
-    public void update(Level taso){
+    public void update(Level taso) {
         move(taso.getPlayer());
     }
-    
+
     @Override
-    public void onCollision(GameObject obj){
-        if(obj instanceof Projectile){
+    public void onCollision(GameObject obj) {
+        if (obj instanceof Projectile) {
             this.setIsAlive(false);
         }
     }
-    
-    public void move(Player p){
-        this.setVelX((p.getPosX() - this.getPosX())/30);
-        this.setVelY((p.getPosY()- this.getPosY())/30);
-        
-        this.setPosX(this.getPosX()+ this.getVelX());
-        this.setPosY(this.getPosY()+this.getVelY());
+
+    public void move(Player p) {
+        this.setVelX((p.getPosX() - this.getPosX()) / 30);
+        this.setVelY((p.getPosY() - this.getPosY()) / 30);
+
+        this.setPosX(this.getPosX() + this.getVelX());
+        this.setPosY(this.getPosY() + this.getVelY());
     }
 
 }

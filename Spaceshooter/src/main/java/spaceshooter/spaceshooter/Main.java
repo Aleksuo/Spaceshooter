@@ -5,6 +5,8 @@
  */
 package spaceshooter.spaceshooter;
 
+import java.awt.EventQueue;
+
 /**
  *
  * @author Aleksi
@@ -12,8 +14,8 @@ package spaceshooter.spaceshooter;
 public class Main {
 
     public static void main(String[] args) {
-        Sovellus peli = new Sovellus();
-        peli.setVisible(true);
-        peli.loop();
+         App s = new App();
+         s.setVisible(true);
+         s.loop();
     }
 }

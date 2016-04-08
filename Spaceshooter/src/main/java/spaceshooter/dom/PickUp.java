@@ -9,10 +9,6 @@ package spaceshooter.dom;
  *
  * @author Aleksi
  */
-public class Vihollinen extends Objekti {
-
-    public Vihollinen(int x, int y, int vx, int vy, int w, int h) {
-        super(x, y, vx, vy, w, h);
-    }
+public interface PickUp {
 
 }

@@ -13,11 +13,11 @@ import java.awt.image.BufferedImage;
  *
  * @author Aleksi
  */
-public class KuvallinenObjekti extends Objekti {
+public class ImageObject extends GameObject {
 
     private Image sprite;
 
-    public KuvallinenObjekti(float x, float y, float vx, float vy, int w, int h) {
+    public ImageObject(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
     }
     

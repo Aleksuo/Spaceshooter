@@ -6,9 +6,9 @@
 package spaceshooter.dom.Components.Collision;
 
 
-import spaceshooter.dom.Objekti;
-import spaceshooter.dom.Pelaaja;
-import spaceshooter.dom.Vihollinen;
+import spaceshooter.dom.GameObject;
+import spaceshooter.dom.Player;
+import spaceshooter.dom.Enemy;
 
 /**
  *
@@ -21,11 +21,11 @@ public class PlayerCollisionComponent extends CollisionComponent{
     
     @Override
     public void onCollision(Object obj){
-        Pelaaja p = (Pelaaja)this.getObj();
-        if (obj instanceof Vihollinen) {
-            if (p.getAlukset() >= 1) {
-                p.setAlukset(p.getAlukset()-1);
-                if (p.getAlukset() == 0) {
+        Player p = (Player)this.getObj();
+        if (obj instanceof Enemy) {
+            if (p.getShips() >= 1) {
+                p.setShips(p.getShips()-1);
+                if (p.getShips() == 0) {
                     p.setIsAlive(false);
                 }
             }

@@ -6,7 +6,7 @@
 package spaceshooter.dom.Components.Collision;
 
 import spaceshooter.dom.Components.Component;
-import spaceshooter.dom.Objekti;
+import spaceshooter.dom.GameObject;
 
 /**
  *

@@ -11,7 +11,7 @@ import java.awt.Rectangle;
  *
  * @author Aleksi
  */
-public class Objekti {
+public class GameObject {
 
     private float posX;
     private float posY;
@@ -24,7 +24,7 @@ public class Objekti {
     
     private boolean isAlive;
 
-    public Objekti(float x, float y, float vx, float vy, int w, int h) {
+    public GameObject(float x, float y, float vx, float vy, int w, int h) {
         this.posX = x;
         this.posY = y;
 
@@ -35,9 +35,9 @@ public class Objekti {
         this.height = h;
     }
     
-    public void update(Taso taso){}
+    public void update(Level taso){}
     
-    public void onCollision(Objekti obj){}
+    public void onCollision(GameObject obj){}
 
     public float getPosX() {
         return posX;

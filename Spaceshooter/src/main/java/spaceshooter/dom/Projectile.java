@@ -11,9 +11,9 @@ import javax.swing.ImageIcon;
  *
  * @author Aleksi
  */
-public class Ammus extends KuvallinenObjekti {
+public class Projectile extends ImageObject {
 
-    public Ammus(float x, float y, float vx, float vy, int w, int h) {
+    public Projectile(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/ammus.png");
         this.setSprite(icon.getImage());
@@ -21,21 +21,21 @@ public class Ammus extends KuvallinenObjekti {
     }
     
     @Override
-    public void update(Taso taso){
-        liiku();
+    public void update(Level taso){
+        move();
         if(this.getPosY() < 0){
             this.setIsAlive(false);
         }
     }
 
     @Override
-    public void onCollision(Objekti obj) {
-        if(obj instanceof Vihollinen){
+    public void onCollision(GameObject obj) {
+        if(obj instanceof Enemy){
             this.setIsAlive(false);
         }
     }
     
-    public void liiku(){
+    public void move(){
         //float dx = this.getPosX() + this.getVelX();
         float dy = this.getPosY() - this.getVelY();
        

@@ -9,9 +9,9 @@ package spaceshooter.dom;
  *
  * @author Aleksi
  */
-public class Paivitys extends Objekti implements Poimittava {
+public class Update extends GameObject implements PickUp {
 
-    public Paivitys(int x, int y, int vx, int vy, int w, int h) {
+    public Update(int x, int y, int vx, int vy, int w, int h) {
         super(x, y, vx, vy, w, h);
     }
 

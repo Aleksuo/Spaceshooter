@@ -14,7 +14,7 @@ import java.awt.EventQueue;
 public class Main {
 
     public static void main(String[] args) {
-         Sovellus s = new Sovellus();
+         App s = new App();
          s.setVisible(true);
          s.loop();
     }

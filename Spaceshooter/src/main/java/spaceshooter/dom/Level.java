@@ -21,20 +21,20 @@ import spaceshooter.util.Collision;
  *
  * @author Aleksi
  */
-public class Taso extends JPanel implements KeyListener {
+public class Level extends JPanel implements KeyListener {
 
-    private Pelaaja pelaaja;
-    private ConcurrentLinkedQueue<Objekti> objektit;
+    private Player player;
+    private ConcurrentLinkedQueue<GameObject> objektit;
 
-    public Taso() {
+    public Level() {
         this.setDoubleBuffered(true);
         this.setBackground(Color.black);
-        this.pelaaja = new Pelaaja(0, 0, 32, 32);
-        this.objektit = new ConcurrentLinkedQueue<Objekti>();
+        this.player = new Player(0, 0, 32, 32);
+        this.objektit = new ConcurrentLinkedQueue<GameObject>();
         this.addKeyListener(this);
-        this.objektit.add(pelaaja);
-        this.objektit.add(new Vihollinen(0, 10, 10, 0, 32, 32));
-        this.objektit.add(new Vihollinen(100, 0, 20, 20, 32, 32));
+        this.objektit.add(player);
+        this.objektit.add(new Enemy(0, 10, 10, 0, 32, 32));
+        this.objektit.add(new Enemy(100, 0, 20, 20, 32, 32));
 
     }
 
@@ -47,25 +47,34 @@ public class Taso extends JPanel implements KeyListener {
 
     public void draw(Graphics g) {
 
-        for (Objekti o : objektit) {
+        for (GameObject o : objektit) {
 
-            if (o instanceof KuvallinenObjekti) {
-                KuvallinenObjekti kuvallinen = (KuvallinenObjekti) o;
+            if (o instanceof ImageObject) {
+                ImageObject kuvallinen = (ImageObject) o;
                 kuvallinen.draw(g);
             }
         }
 
     }
 
-    public void update() {
-        pelaaja.update(this);
-        for (Objekti o : objektit) {
+    public void tick() {
+        update();
+        checkCollisions();
+        removeDeadObjects();
+        System.out.println("Objekteja: " + objektit.size());
+    }
+    
+    public void update(){
+        for (GameObject o : objektit) {
             o.update(this);
         }
-        //tarkistetaaan törmäykset
-        for (Objekti o : objektit) {
+    }
+    
+    //todo eriytä omaan luokkaan
+    public void checkCollisions(){
+        for (GameObject o : objektit) {
             if (o.isAlive()) {
-                for (Objekti t : objektit) {
+                for (GameObject t : objektit) {
                     if (t.isAlive()) {
                         if (Collision.isCollision(t.getHitbox(), o.getHitbox())) {
                             o.onCollision(t);
@@ -79,28 +88,30 @@ public class Taso extends JPanel implements KeyListener {
             }
 
         }
-        //poistetaan kuolleet objektit
-        for (Iterator<Objekti> iterator = objektit.iterator(); iterator.hasNext();) {
-            Objekti obj = iterator.next();
+    }
+    
+    public void removeDeadObjects(){
+        for (Iterator<GameObject> iterator = objektit.iterator(); iterator.hasNext();) {
+            GameObject obj = iterator.next();
             if (!obj.isAlive()) {
                 iterator.remove();
             }
         }
-        System.out.println("Objekteja: " + objektit.size());
     }
 
-    public Pelaaja getPelaaja() {
-        return pelaaja;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setPelaaja(Pelaaja pelaaja) {
-        this.pelaaja = pelaaja;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
-    public void lisaaObjekti(Objekti obj) {
+    public void addObject(GameObject obj) {
         this.objektit.add(obj);
     }
 
+    //todo tee omaan luokkaan listenerit
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -109,7 +120,7 @@ public class Taso extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            this.pelaaja.getAse().ammu(this);
+            this.player.getWeapon().ammu(this);
             System.out.println("väli painettu");
         }
     }

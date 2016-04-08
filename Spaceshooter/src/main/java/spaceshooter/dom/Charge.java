@@ -9,6 +9,10 @@ package spaceshooter.dom;
  *
  * @author Aleksi
  */
-public interface Poimittava {
+public class Charge extends GameObject implements PickUp {
+
+    public Charge(int x, int y, int vx, int vy, int w, int h) {
+        super(x, y, vx, vy, w, h);
+    }
 
 }

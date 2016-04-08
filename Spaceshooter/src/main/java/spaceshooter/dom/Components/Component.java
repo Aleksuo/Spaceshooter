@@ -5,23 +5,23 @@
  */
 package spaceshooter.dom.Components;
 
-import spaceshooter.dom.Objekti;
+import spaceshooter.dom.GameObject;
 
 /**
  *
  * @author Aleksi
  */
 public class Component {
-    private Objekti obj;
+    private GameObject obj;
     public Component(){
 
     }
 
-    public Objekti getObj() {
+    public GameObject getObj() {
         return obj;
     }
 
-    public void setObj(Objekti obj) {
+    public void setObj(GameObject obj) {
         this.obj = obj;
     }
     

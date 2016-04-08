@@ -11,17 +11,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import spaceshooter.logiikka.Pistelaskuri;
+import spaceshooter.logic.Scorecounter;
 
 /**
  *
  * @author Aleksi
  */
-public class PistelaskuriTest {
+public class ScorecounterTest {
 
-    Pistelaskuri laskuri;
+    Scorecounter counter;
 
-    public PistelaskuriTest() {
+    public ScorecounterTest() {
 
     }
 
@@ -35,7 +35,7 @@ public class PistelaskuriTest {
 
     @Before
     public void setUp() {
-        this.laskuri = new Pistelaskuri();
+        this.counter = new Scorecounter();
     }
 
     @After
@@ -49,55 +49,55 @@ public class PistelaskuriTest {
     // public void hello() {}
     @Test
     public void eiPisteitaAlussa() {
-        assertEquals(0, laskuri.getPisteet());
+        assertEquals(0, counter.getScore());
     }
 
     @Test
     public void lisaysLisaaPisteita() {
-        laskuri.lisaa(100);
-        assertEquals(100, laskuri.getPisteet());
-        laskuri.lisaa(150);
-        assertEquals(250, laskuri.getPisteet());
+        counter.add(100);
+        assertEquals(100, counter.getScore());
+        counter.add(150);
+        assertEquals(250, counter.getScore());
     }
 
     @Test
     public void lisaysEiVahennaPisteita() {
-        laskuri.lisaa(-1);
-        laskuri.lisaa(-100);
-        assertEquals(0, laskuri.getPisteet());
-        laskuri.lisaa(200);
-        laskuri.lisaa(-150);
-        assertEquals(200, laskuri.getPisteet());
+        counter.add(-1);
+        counter.add(-100);
+        assertEquals(0, counter.getScore());
+        counter.add(200);
+        counter.add(-150);
+        assertEquals(200, counter.getScore());
     }
 
     @Test
     public void vahennysVahentaaPisteita() {
-        laskuri.lisaa(500);
-        laskuri.vahenna(250);
-        assertEquals(250, laskuri.getPisteet());
-        laskuri.vahenna(250);
-        assertEquals(0, laskuri.getPisteet());
+        counter.add(500);
+        counter.reduce(250);
+        assertEquals(250, counter.getScore());
+        counter.reduce(250);
+        assertEquals(0, counter.getScore());
     }
 
     @Test
     public void vahennysEiLisaaPisteita() {
-        laskuri.vahenna(-200);
-        assertEquals(0, laskuri.getPisteet());
+        counter.reduce(-200);
+        assertEquals(0, counter.getScore());
     }
 
     @Test
     public void vahennysEiVahennaNegatiiviseksi() {
-        laskuri.vahenna(100);
-        assertEquals(0, laskuri.getPisteet());
-        laskuri.lisaa(100);
-        laskuri.vahenna(150);
-        assertEquals(0, laskuri.getPisteet());
+        counter.reduce(100);
+        assertEquals(0, counter.getScore());
+        counter.add(100);
+        counter.reduce(150);
+        assertEquals(0, counter.getScore());
     }
 
     @Test
     public void nollauksenJalkeenEiPisteita() {
-        laskuri.lisaa(400);
-        laskuri.nollaa();
-        assertEquals(0, laskuri.getPisteet());
+        counter.add(400);
+        counter.reset();
+        assertEquals(0, counter.getScore());
     }
 }

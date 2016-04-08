@@ -17,11 +17,11 @@ import static org.junit.Assert.*;
  *
  * @author Aleksi
  */
-public class PelaajaTest {
+public class PlayerTest {
 
-    Pelaaja pelaaja;
+    Player player;
 
-    public PelaajaTest() {
+    public PlayerTest() {
     }
 
     @BeforeClass
@@ -34,7 +34,7 @@ public class PelaajaTest {
 
     @Before
     public void setUp() {
-        pelaaja = new Pelaaja(0, 0, 0, 0);
+        player = new Player(0, 0, 0, 0);
     }
 
     @After
@@ -48,29 +48,29 @@ public class PelaajaTest {
     // public void hello() {}
     @Test
     public void pelaajallaKolmeAlustaAlussa() {
-        assertEquals(3, pelaaja.getAlukset());
+        assertEquals(3, player.getShips());
     }
 
     @Test
     public void pelaajaElossaLuonnissa() {
-        assertEquals(true, pelaaja.isAlive());
+        assertEquals(true, player.isAlive());
     }
 
     @Test
     public void tormaysViholliseenVahentaaAluksia() {
-        Vihollinen dummy = new Vihollinen(0, 0, 0, 0, 0, 0);
-        pelaaja.onCollision(dummy);
-        assertEquals(2, pelaaja.getAlukset());
-        pelaaja.onCollision(dummy);
-        assertEquals(1, pelaaja.getAlukset());
+        Enemy dummy = new Enemy(0, 0, 0, 0, 0, 0);
+        player.onCollision(dummy);
+        assertEquals(2, player.getShips());
+        player.onCollision(dummy);
+        assertEquals(1, player.getShips());
     }
 
     @Test
     public void pelaajaEiElossaAlustenLoppuessa() {
-        Vihollinen dummy = new Vihollinen(0, 0, 0, 0, 0, 0);
-        pelaaja.onCollision(dummy);
-        pelaaja.onCollision(dummy);
-        pelaaja.onCollision(dummy);
-        assertEquals(false, pelaaja.isAlive());
+        Enemy dummy = new Enemy(0, 0, 0, 0, 0, 0);
+        player.onCollision(dummy);
+        player.onCollision(dummy);
+        player.onCollision(dummy);
+        assertEquals(false, player.isAlive());
     }
 }

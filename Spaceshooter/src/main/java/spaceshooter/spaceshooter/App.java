@@ -8,24 +8,24 @@ package spaceshooter.spaceshooter;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
-import spaceshooter.dom.Taso;
+import spaceshooter.dom.Level;
 
 /**
  *
  * @author Aleksi
  */
-public class Sovellus extends JFrame{
+public class App extends JFrame{
 
-    private Taso taso;
-    private boolean pelissa;
+    private Level taso;
+    private boolean inGame;
 
-    public Sovellus() {
-        this.initUI();
-        pelissa = true;
+    public App() {
+        this.initGUI();
+        inGame = true;
     }
 
-    public void initUI() {
-        taso = new Taso();
+    public void initGUI() {
+        taso = new Level();
         this.add(taso);
         this.pack();
         this.setSize(500, 500);
@@ -45,12 +45,12 @@ public class Sovellus extends JFrame{
         double next_game_tick = System.currentTimeMillis();
         int loops;
 
-        while (pelissa) {
+        while (inGame) {
             loops = 0;
             while (System.currentTimeMillis() > next_game_tick
                     && loops < 5) {
 
-                taso.update();
+                taso.tick();
 
                 next_game_tick += 1000 / 15;
                 loops++;

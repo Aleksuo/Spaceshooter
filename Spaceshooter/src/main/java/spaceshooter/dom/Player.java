@@ -13,23 +13,23 @@ import javax.swing.ImageIcon;
  *
  * @author Aleksi
  */
-public class Pelaaja extends KuvallinenObjekti{
+public class Player extends ImageObject{
 
-    private int alukset;
-    private Ase ase;
+    private int ships;
+    private Weapon weapon;
 
-    public Pelaaja(int x, int y, int w, int h) {
+    public Player(int x, int y, int w, int h) {
         super(x, y, 0, 0, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/alus.png");
         this.setSprite(icon.getImage());
-        this.alukset = 3;
-        this.ase = new Ase(this);
+        this.ships = 3;
+        this.weapon = new Weapon(this);
 
         this.setIsAlive(true);
     }
 
     @Override
-    public void update(Taso taso) {
+    public void update(Level taso) {
         Point piste = taso.getMousePosition();
         if (piste != null) {
             this.setPosX(piste.x);
@@ -39,11 +39,11 @@ public class Pelaaja extends KuvallinenObjekti{
     }
     
     @Override
-    public void onCollision(Objekti obj) {
-        if (obj instanceof Vihollinen) {
-            if (this.alukset >= 1) {
-                this.alukset--;
-                if (this.alukset < 1) {
+    public void onCollision(GameObject obj) {
+        if (obj instanceof Enemy) {
+            if (this.ships >= 1) {
+                this.ships--;
+                if (this.ships < 1) {
                     this.setIsAlive(false);
                 }
             }
@@ -53,20 +53,20 @@ public class Pelaaja extends KuvallinenObjekti{
         }
     }
 
-    public int getAlukset() {
-        return alukset;
+    public int getShips() {
+        return ships;
     }
 
-    public void setAlukset(int alukset) {
-        this.alukset = alukset;
+    public void setShips(int ships) {
+        this.ships = ships;
     }
 
-    public Ase getAse() {
-        return ase;
+    public Weapon getWeapon() {
+        return weapon;
     }
 
-    public void setAse(Ase ase) {
-        this.ase = ase;
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
     
     

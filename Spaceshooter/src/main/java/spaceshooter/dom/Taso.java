@@ -7,26 +7,34 @@ package spaceshooter.dom;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
 import javax.swing.JPanel;
-import javax.swing.Timer;
+
 import spaceshooter.util.Collision;
 
 /**
  *
  * @author Aleksi
  */
-public class Taso extends JPanel {
+public class Taso extends JPanel implements KeyListener {
 
     private Pelaaja pelaaja;
-    private ArrayList<Objekti> objektit;
+    private ConcurrentLinkedQueue<Objekti> objektit;
 
     public Taso() {
+        this.setDoubleBuffered(true);
         this.setBackground(Color.black);
         this.pelaaja = new Pelaaja(0, 0, 32, 32);
-        this.objektit = new ArrayList<Objekti>();
-        this.objektit.add(new Vihollinen(0, 10, 10, 0, 0, 0));
-        this.objektit.add(new Vihollinen(100, 0, 20, 20, 0, 0));
+        this.objektit = new ConcurrentLinkedQueue<Objekti>();
+        this.addKeyListener(this);
+        this.objektit.add(pelaaja);
+        this.objektit.add(new Vihollinen(0, 10, 10, 0, 32, 32));
+        this.objektit.add(new Vihollinen(100, 0, 20, 20, 32, 32));
 
     }
 
@@ -39,8 +47,8 @@ public class Taso extends JPanel {
 
     public void draw(Graphics g) {
 
-        pelaaja.draw(g);
         for (Objekti o : objektit) {
+
             if (o instanceof KuvallinenObjekti) {
                 KuvallinenObjekti kuvallinen = (KuvallinenObjekti) o;
                 kuvallinen.draw(g);
@@ -57,19 +65,28 @@ public class Taso extends JPanel {
         //tarkistetaaan törmäykset
         for (Objekti o : objektit) {
             if (o.isAlive()) {
-                if (Collision.isCollision(pelaaja.getHitbox(), o.getHitbox())) {
-                    pelaaja.onCollision(o);
+                for (Objekti t : objektit) {
+                    if (t.isAlive()) {
+                        if (Collision.isCollision(t.getHitbox(), o.getHitbox())) {
+                            o.onCollision(t);
+                            t.onCollision(o);
+
+                        }
+
+                    }
                 }
 
             }
 
         }
         //poistetaan kuolleet objektit
-        for(int i = 0; i<this.objektit.size()-1; i++){
-            if(!this.objektit.get(i).isAlive()){
-                poistaObjekti(i);
+        for (Iterator<Objekti> iterator = objektit.iterator(); iterator.hasNext();) {
+            Objekti obj = iterator.next();
+            if (!obj.isAlive()) {
+                iterator.remove();
             }
         }
+        System.out.println("Objekteja: " + objektit.size());
     }
 
     public Pelaaja getPelaaja() {
@@ -84,8 +101,21 @@ public class Taso extends JPanel {
         this.objektit.add(obj);
     }
 
-    public void poistaObjekti(int i) {
-        this.objektit.remove(i);
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            this.pelaaja.getAse().ammu(this);
+            System.out.println("väli painettu");
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
     }
 
 }

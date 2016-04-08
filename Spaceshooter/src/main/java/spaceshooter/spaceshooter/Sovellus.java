@@ -14,7 +14,7 @@ import spaceshooter.dom.Taso;
  *
  * @author Aleksi
  */
-public class Sovellus extends JFrame {
+public class Sovellus extends JFrame{
 
     private Taso taso;
     private boolean pelissa;
@@ -27,10 +27,13 @@ public class Sovellus extends JFrame {
     public void initUI() {
         taso = new Taso();
         this.add(taso);
+        this.pack();
         this.setSize(500, 500);
         this.setTitle("Shmup");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        taso.requestFocus();
+        
 
         this.setCursor(this.getToolkit().createCustomCursor(
                 new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
@@ -57,5 +60,7 @@ public class Sovellus extends JFrame {
         }
 
     }
+
+    
 
 }

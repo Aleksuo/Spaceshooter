@@ -16,6 +16,8 @@ public class Ase {
     }
     
     public void ammu(Taso taso){
-  
+        float x = this.isanta.getPosX()+16;
+        float y = this.isanta.getPosY();
+        taso.lisaaObjekti(new Ammus(x,y,10,10,10,10));
     }
 }

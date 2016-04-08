@@ -17,6 +17,7 @@ public class Vihollinen extends KuvallinenObjekti {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/vihollinen.png");
         this.setSprite(icon.getImage());
+        this.setIsAlive(true);
     }
     
     @Override
@@ -26,12 +27,14 @@ public class Vihollinen extends KuvallinenObjekti {
     
     @Override
     public void onCollision(Objekti obj){
-        
+        if(obj instanceof Ammus){
+            this.setIsAlive(false);
+        }
     }
     
     public void liiku(Pelaaja p){
-        this.setVelX((p.getPosX() - this.getPosX()));
-        this.setVelY((p.getPosY()- this.getPosY()));
+        this.setVelX((p.getPosX() - this.getPosX())/30);
+        this.setVelY((p.getPosY()- this.getPosY())/30);
         
         this.setPosX(this.getPosX()+ this.getVelX());
         this.setPosY(this.getPosY()+this.getVelY());

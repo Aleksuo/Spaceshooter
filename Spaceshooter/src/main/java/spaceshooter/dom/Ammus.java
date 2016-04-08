@@ -17,11 +17,15 @@ public class Ammus extends KuvallinenObjekti {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/ammus.png");
         this.setSprite(icon.getImage());
+        this.setIsAlive(true);
     }
     
     @Override
     public void update(Taso taso){
         liiku();
+        if(this.getPosY() < 0){
+            this.setIsAlive(false);
+        }
     }
 
     @Override
@@ -32,9 +36,9 @@ public class Ammus extends KuvallinenObjekti {
     }
     
     public void liiku(){
-        float dx = this.getPosX() + this.getVelX();
-        float dy = this.getPosY() + this.getVelY();
-        this.setPosX(dx);
+        //float dx = this.getPosX() + this.getVelX();
+        float dy = this.getPosY() - this.getVelY();
+       
         this.setPosY(dy);
     }
     

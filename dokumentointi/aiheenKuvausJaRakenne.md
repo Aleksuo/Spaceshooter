@@ -16,4 +16,4 @@ Toteutetaan kaksiulotteinen  ylhäältäpäin kuvattu shoot'em up -peli. Pelaaja
   
 *Pelaajalla tulee olla aluksia jäljellä ja pelin tulee olla aloitettu
 
-![Määrittelyvaiheen luokkakaavio](/dokumentointi/maarittely.png)
+![Määrittelyvaiheen luokkakaavio](/dokumentointi/luokkakaavio.png)

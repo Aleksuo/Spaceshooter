@@ -9,6 +9,6 @@ package spaceshooter.dom;
  *
  * @author Aleksi
  */
-public interface PickUp {
+public interface IPickUp {
 
 }

@@ -242,7 +242,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#spaceshooter.dom.PickUp.java">spaceshooter/dom/PickUp.java</a>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.dom.IPickUp.java">spaceshooter/dom/IPickUp.java</a>
                 </td>
                 <td>
                   0

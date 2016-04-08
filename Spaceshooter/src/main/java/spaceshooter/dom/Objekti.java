@@ -13,16 +13,18 @@ import java.awt.Rectangle;
  */
 public class Objekti {
 
-    private int posX;
-    private int posY;
+    private float posX;
+    private float posY;
 
-    private int velX;
-    private int velY;
+    private float velX;
+    private float velY;
 
     private int width;
     private int height;
+    
+    private boolean isAlive;
 
-    public Objekti(int x, int y, int vx, int vy, int w, int h) {
+    public Objekti(float x, float y, float vx, float vy, int w, int h) {
         this.posX = x;
         this.posY = y;
 
@@ -32,36 +34,40 @@ public class Objekti {
         this.width = w;
         this.height = h;
     }
+    
+    public void update(Taso taso){}
+    
+    public void onCollision(Objekti obj){}
 
-    public int getPosX() {
+    public float getPosX() {
         return posX;
     }
 
-    public void setPosX(int posX) {
+    public void setPosX(float posX) {
         this.posX = posX;
     }
 
-    public int getPosY() {
+    public float getPosY() {
         return posY;
     }
 
-    public void setPosY(int posY) {
+    public void setPosY(float posY) {
         this.posY = posY;
     }
 
-    public int getVelX() {
+    public float getVelX() {
         return velX;
     }
 
-    public void setVelX(int velX) {
+    public void setVelX(float velX) {
         this.velX = velX;
     }
 
-    public int getVelY() {
+    public float getVelY() {
         return velY;
     }
 
-    public void setVelY(int velY) {
+    public void setVelY(float velY) {
         this.velY = velY;
     }
 
@@ -81,8 +87,18 @@ public class Objekti {
         this.height = height;
     }
 
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+    
+    
+
     public Rectangle getHitbox() {
-        return new Rectangle(this.posX, this.posX, this.getWidth(), this.getHeight());
+        return new Rectangle((int)this.posX, (int)this.posY, this.getWidth(), this.getHeight());
     }
 
 }

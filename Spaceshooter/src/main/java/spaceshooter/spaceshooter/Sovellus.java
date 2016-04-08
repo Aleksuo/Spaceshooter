@@ -39,10 +39,23 @@ public class Sovellus extends JFrame {
     }
 
     public void loop() {
+        double next_game_tick = System.currentTimeMillis();
+        int loops;
+
         while (pelissa) {
-            taso.update();
+            loops = 0;
+            while (System.currentTimeMillis() > next_game_tick
+                    && loops < 5) {
+
+                taso.update();
+
+                next_game_tick += 1000 / 15;
+                loops++;
+
+            }
 
         }
+
     }
 
 }

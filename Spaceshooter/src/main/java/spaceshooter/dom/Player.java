@@ -23,8 +23,6 @@ public class Player extends ImageObject {
         this.setSprite(icon.getImage());
         this.ships = 3;
         this.weapon = new Weapon(this);
-
-        this.setIsAlive(true);
     }
 
     @Override

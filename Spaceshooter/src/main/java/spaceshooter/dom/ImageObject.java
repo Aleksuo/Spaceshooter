@@ -28,7 +28,8 @@ public class ImageObject extends GameObject {
     public void setSprite(Image sprite) {
         this.sprite = sprite;
     }
-
+    
+    @Override
     public void draw(Graphics g) {
         g.drawImage(this.getSprite(), (int) this.getPosX(), (int) this.getPosY(), null);
     }

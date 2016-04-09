@@ -5,6 +5,7 @@
  */
 package spaceshooter.dom;
 
+import java.awt.Graphics;
 import java.awt.Rectangle;
 
 /**
@@ -33,7 +34,10 @@ public class GameObject {
 
         this.width = w;
         this.height = h;
+        
+        this.isAlive = true;
     }
+    public void draw(Graphics g){}
 
     public void update(Level taso) {
     }

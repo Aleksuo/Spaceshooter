@@ -17,7 +17,6 @@ public class Projectile extends ImageObject {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/ammus.png");
         this.setSprite(icon.getImage());
-        this.setIsAlive(true);
     }
 
     @Override

@@ -33,8 +33,8 @@ public class Level extends JPanel implements KeyListener {
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
         this.addKeyListener(this);
         this.objektit.add(player);
-        this.objektit.add(new Enemy(0, 10, 10, 0, 32, 32));
-        this.objektit.add(new Enemy(100, 0, 20, 20, 32, 32));
+        this.objektit.add(new Mine(0, 10, 10, 0, 32, 32));
+        this.objektit.add(new Mine(100, 0, 20, 20, 32, 32));
 
     }
 
@@ -49,10 +49,7 @@ public class Level extends JPanel implements KeyListener {
 
         for (GameObject o : objektit) {
 
-            if (o instanceof ImageObject) {
-                ImageObject kuvallinen = (ImageObject) o;
-                kuvallinen.draw(g);
-            }
+            o.draw(g);
         }
 
     }

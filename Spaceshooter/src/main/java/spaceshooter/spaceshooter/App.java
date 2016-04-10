@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import spaceshooter.dom.Level;
+import spaceshooter.dom.Levelmanager;
 
 /**
  *
@@ -16,7 +17,7 @@ import spaceshooter.dom.Level;
  */
 public class App extends JFrame {
 
-    private Level taso;
+    private Levelmanager levelmanager;
     private boolean inGame;
 
     public App() {
@@ -25,14 +26,14 @@ public class App extends JFrame {
     }
 
     public void initGUI() {
-        taso = new Level();
-        this.add(taso);
+        this.levelmanager = new Levelmanager();
+        this.add(levelmanager.getLevel());
         this.pack();
-        this.setSize(500, 500);
+        this.setSize(800, 600);
         this.setTitle("Shmup");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        taso.requestFocus();
+        levelmanager.getLevel().requestFocus();
 
         this.setCursor(this.getToolkit().createCustomCursor(
                 new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
@@ -49,7 +50,7 @@ public class App extends JFrame {
             while (System.currentTimeMillis() > nextGameTick
                     && loops < 5) {
 
-                taso.tick();
+                this.levelmanager.tick();
 
                 nextGameTick += 1000 / 15;
                 loops++;

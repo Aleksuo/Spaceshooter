@@ -33,8 +33,8 @@ public class Level extends JPanel implements KeyListener {
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
         this.addKeyListener(this);
         this.objektit.add(player);
-        this.objektit.add(new Mine(0, 10, 10, 0, 32, 32));
-        this.objektit.add(new Mine(100, 0, 20, 20, 32, 32));
+        
+        
 
     }
 
@@ -58,7 +58,7 @@ public class Level extends JPanel implements KeyListener {
         update();
         checkCollisions();
         removeDeadObjects();
-        System.out.println("Objekteja: " + objektit.size());
+        //System.out.println("Objekteja: " + objektit.size());
     }
 
     public void update() {
@@ -117,7 +117,7 @@ public class Level extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            this.player.getWeapon().ammu(this);
+            this.player.getWeapon().shoot(this);
             System.out.println("väli painettu");
         }
     }

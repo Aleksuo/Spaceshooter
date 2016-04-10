@@ -13,10 +13,11 @@ import javax.swing.ImageIcon;
  */
 public class Mine extends Enemy{
 
-    public Mine(int x, int y, int vx, int vy, int w, int h) {
+    public Mine(float x, float y, int vx, int vy, int w, int h) {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/miina.png");
         this.setSprite(icon.getImage());
+        this.setHitpoints(75);
         this.setIsAlive(true);
     }
     
@@ -36,7 +37,12 @@ public class Mine extends Enemy{
     @Override
     public void onCollision(GameObject obj) {
         if (obj instanceof Projectile) {
-            this.setIsAlive(false);
+            Projectile projectile = (Projectile)obj;
+            int newHp = this.getHitpoints()- projectile.getDamage();
+            this.setHitpoints(newHp);
+            if(this.getHitpoints()< 0){
+                this.setIsAlive(false);
+            }
         }
     }
     

@@ -12,11 +12,13 @@ import javax.swing.ImageIcon;
  * @author Aleksi
  */
 public class Projectile extends ImageObject {
+    private int damage;
 
-    public Projectile(float x, float y, float vx, float vy, int w, int h) {
+    public Projectile(float x, float y, float vx, float vy, int w, int h, int damage) {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/ammus.png");
         this.setSprite(icon.getImage());
+        this.damage = damage;
     }
 
     @Override
@@ -40,5 +42,15 @@ public class Projectile extends ImageObject {
 
         this.setPosY(dy);
     }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+    
+    
 
 }

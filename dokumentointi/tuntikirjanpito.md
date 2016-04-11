@@ -9,3 +9,5 @@ Päivä | Tunnit | Kuvaus
 2.4.2016  | 4.0h | Lisää Domainluokkia ja logiikkaa
 7.4.2016  | 5.0h | Refaktorointia ja uusien toimintojen toteutusta
 8.4.2016  | 6.0h | Refaktorointia ja dokumentaation päivittämistä
+9.4.2016 | 4.0h | Tasojärjestelmän toteuttamista ja refaktorointia
+10.4.2016 | 4.0h | Tasoparserin yksinkertainen toteutus

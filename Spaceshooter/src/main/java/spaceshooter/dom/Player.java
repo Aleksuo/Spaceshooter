@@ -9,8 +9,8 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 
 /**
+ * Object that can be controlled with user input.
  *
- * @author Aleksi
  */
 public class Player extends ImageObject {
 
@@ -22,7 +22,7 @@ public class Player extends ImageObject {
         ImageIcon icon = new ImageIcon("./Resources/Sprites/alus.png");
         this.setSprite(icon.getImage());
         this.ships = 3;
-        this.weapon = new Weapon(this,10,25);
+        this.weapon = new Weapon(this, 10, 25);
     }
 
     @Override

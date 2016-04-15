@@ -10,10 +10,10 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 /**
+ * Abstract class for all objects that have a sprite.
  *
- * @author Aleksi
  */
-public class ImageObject extends GameObject {
+abstract public class ImageObject extends GameObject {
 
     private Image sprite;
 
@@ -28,7 +28,7 @@ public class ImageObject extends GameObject {
     public void setSprite(Image sprite) {
         this.sprite = sprite;
     }
-    
+
     @Override
     public void draw(Graphics g) {
         g.drawImage(this.getSprite(), (int) this.getPosX(), (int) this.getPosY(), null);

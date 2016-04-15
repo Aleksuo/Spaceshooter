@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.commands;
 
 import spaceshooter.commands.Command;
 
 /**
- *
- * @author Aleksi
+ * Command that holds information about spawning an enemy object. Format in
+ * textfile: float time, SPAWN_ENEMY, int enemyId, float x, float y
  */
-public class SpawnEnemyCommand extends Command{
+public class SpawnEnemyCommand extends Command {
+
     private int enemyId;
     private float x;
     private float y;
@@ -46,6 +42,5 @@ public class SpawnEnemyCommand extends Command{
     public void setY(float y) {
         this.y = y;
     }
-    
-    
+
 }

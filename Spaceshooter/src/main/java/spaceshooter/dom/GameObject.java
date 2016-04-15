@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.dom;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
 /**
+ * Abstract class for all objects in game.
  *
- * @author Aleksi
  */
-public class GameObject {
+abstract public class GameObject {
 
     private float posX;
     private float posY;
@@ -34,10 +29,12 @@ public class GameObject {
 
         this.width = w;
         this.height = h;
-        
+
         this.isAlive = true;
     }
-    public void draw(Graphics g){}
+
+    public void draw(Graphics g) {
+    }
 
     public void update(Level taso) {
     }

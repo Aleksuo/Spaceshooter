@@ -1,19 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package spaceshooter.dom;
+package spaceshooter.managers;
 
 import java.util.PriorityQueue;
 import spaceshooter.commands.Command;
 import spaceshooter.commands.SpawnEnemyCommand;
+import spaceshooter.dom.Level;
+import spaceshooter.dom.Mine;
 import spaceshooter.util.LevelLoader;
 import spaceshooter.util.Timer;
 
 /**
+ * Manager used to manage level related things
  *
- * @author Aleksi
  */
 public class Levelmanager {
 
@@ -31,6 +28,10 @@ public class Levelmanager {
         this.timer = new Timer();
     }
 
+    /**
+     * Does things that should done every frame Calls levels tick method and
+     * handleCommands() -method.
+     */
     public void tick() {
         this.level.tick();
         this.handleCommands();
@@ -50,20 +51,23 @@ public class Levelmanager {
         this.commands = levelLoader.loadLevelFromFile("level1.txt");
     }
 
+    /**
+     * Checks if there are any commands that need to be executed. Called every
+     * frame.
+     */
     public void handleCommands() {
-        
-            while ((!this.commands.isEmpty())
-                    &&(this.timer.elapsedTimeInSeconds() >= this.commands.peek().getTime())) {
-                Command command = this.commands.poll();
-                if (command instanceof SpawnEnemyCommand) {
-                    SpawnEnemyCommand sec = (SpawnEnemyCommand) command;
-                    float x = sec.getX();
-                    float y = sec.getY();
 
-                    this.level.addObject((new Mine(x, y, 20, 20, 32, 32)));
-                }
+        while ((!this.commands.isEmpty())
+                && (this.timer.elapsedTimeInSeconds() >= this.commands.peek().getTime())) {
+            Command command = this.commands.poll();
+            if (command instanceof SpawnEnemyCommand) {
+                SpawnEnemyCommand sec = (SpawnEnemyCommand) command;
+                float x = sec.getX();
+                float y = sec.getY();
+
+                this.level.addObject((new Mine(x, y, 20, 20, 32, 32)));
             }
-        
+        }
 
     }
 

@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.spaceshooter;
 
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import spaceshooter.dom.Level;
-import spaceshooter.dom.Levelmanager;
+import spaceshooter.managers.Levelmanager;
 
 /**
+ * Base for an application.
  *
- * @author Aleksi
  */
 public class App extends JFrame {
 

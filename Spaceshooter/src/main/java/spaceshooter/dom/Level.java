@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.dom;
 
 import java.awt.Color;
@@ -18,8 +13,8 @@ import javax.swing.JPanel;
 import spaceshooter.util.Collision;
 
 /**
+ * Class that holds data for a level.
  *
- * @author Aleksi
  */
 public class Level extends JPanel implements KeyListener {
 
@@ -33,8 +28,6 @@ public class Level extends JPanel implements KeyListener {
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
         this.addKeyListener(this);
         this.objektit.add(player);
-        
-        
 
     }
 

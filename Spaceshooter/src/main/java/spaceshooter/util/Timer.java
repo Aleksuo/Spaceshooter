@@ -6,23 +6,25 @@
 package spaceshooter.util;
 
 /**
+ * Class provides a tool for keeping track of elapsed time using
+ * System.nanoTime().
  *
- * @author Aleksi
  */
 public class Timer {
+
     private long startTime;
-    
-    public Timer(){
+
+    public Timer() {
         this.startTime = System.nanoTime();
     }
-    
-    public double elapsedTimeInSeconds(){
+
+    public double elapsedTimeInSeconds() {
         long elapsedTime = System.nanoTime() - this.startTime;
-        double seconds = (double)elapsedTime/ 1000000000.0;
+        double seconds = (double) elapsedTime / 1000000000.0;
         return seconds;
     }
-    
-    public void reset(){
+
+    public void reset() {
         this.startTime = System.nanoTime();
     }
 }

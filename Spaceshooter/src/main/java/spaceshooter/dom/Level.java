@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.dom;
 
 import java.awt.Color;
@@ -18,8 +13,8 @@ import javax.swing.JPanel;
 import spaceshooter.util.Collision;
 
 /**
+ * Class that holds data for a level.
  *
- * @author Aleksi
  */
 public class Level extends JPanel implements KeyListener {
 
@@ -33,8 +28,6 @@ public class Level extends JPanel implements KeyListener {
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
         this.addKeyListener(this);
         this.objektit.add(player);
-        this.objektit.add(new Enemy(0, 10, 10, 0, 32, 32));
-        this.objektit.add(new Enemy(100, 0, 20, 20, 32, 32));
 
     }
 
@@ -49,10 +42,7 @@ public class Level extends JPanel implements KeyListener {
 
         for (GameObject o : objektit) {
 
-            if (o instanceof ImageObject) {
-                ImageObject kuvallinen = (ImageObject) o;
-                kuvallinen.draw(g);
-            }
+            o.draw(g);
         }
 
     }
@@ -61,7 +51,7 @@ public class Level extends JPanel implements KeyListener {
         update();
         checkCollisions();
         removeDeadObjects();
-        System.out.println("Objekteja: " + objektit.size());
+        //System.out.println("Objekteja: " + objektit.size());
     }
 
     public void update() {
@@ -120,7 +110,7 @@ public class Level extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            this.player.getWeapon().ammu(this);
+            this.player.getWeapon().shoot(this);
             System.out.println("väli painettu");
         }
     }

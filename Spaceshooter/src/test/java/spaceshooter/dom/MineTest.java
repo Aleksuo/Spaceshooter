@@ -16,11 +16,11 @@ import static org.junit.Assert.*;
  *
  * @author Aleksi
  */
-public class PlayerTest {
+public class MineTest {
 
-    Player player;
+    private Mine mine;
 
-    public PlayerTest() {
+    public MineTest() {
     }
 
     @BeforeClass
@@ -33,7 +33,8 @@ public class PlayerTest {
 
     @Before
     public void setUp() {
-        player = new Player(0, 0, 0, 0);
+        this.mine = new Mine(0, 0, 0, 0, 0, 0);
+        this.mine.setHitpoints(50);
     }
 
     @After
@@ -46,30 +47,20 @@ public class PlayerTest {
     // @Test
     // public void hello() {}
     @Test
-    public void pelaajallaKolmeAlustaAlussa() {
-        assertEquals(3, player.getShips());
+    public void tormatessaAmmukseenHpVaheneeAmmuksenVahingonVerran() {
+        this.mine.onCollision(new Projectile(0, 0, 0, 0, 0, 0, 20));
+        assertEquals(30, this.mine.getHitpoints());
     }
 
     @Test
-    public void pelaajaElossaLuonnissa() {
-        assertEquals(true, player.isAlive());
+    public void tuhoutuuJosTormayksenJalkeenHpOnNolla() {
+        this.mine.onCollision(new Projectile(0, 0, 0, 0, 0, 0, 50));
+        assertEquals(false, this.mine.isAlive());
     }
 
     @Test
-    public void tormaysViholliseenVahentaaAluksia() {
-        Enemy dummy = new Mine(0, 0, 0, 0, 0, 0);
-        player.onCollision(dummy);
-        assertEquals(2, player.getShips());
-        player.onCollision(dummy);
-        assertEquals(1, player.getShips());
-    }
-
-    @Test
-    public void pelaajaEiElossaAlustenLoppuessa() {
-        Enemy dummy = new Mine(0, 0, 0, 0, 0, 0);
-        player.onCollision(dummy);
-        player.onCollision(dummy);
-        player.onCollision(dummy);
-        assertEquals(false, player.isAlive());
+    public void tuhoutuuJosTormayksenJalkeenHponPienempiKuinNolla() {
+        this.mine.onCollision(new Projectile(0, 0, 0, 0, 0, 0, 100));
+        assertEquals(false, this.mine.isAlive());
     }
 }

@@ -10,7 +10,10 @@ import spaceshooter.dom.GameObject;
 /**
  *
  * @author Aleksi
+ *
  */
+//Toistaiseksi ei käytössä
+//Totetutetaan jos jää aikaa
 public class Component {
 
     private GameObject obj;

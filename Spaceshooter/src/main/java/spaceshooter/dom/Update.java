@@ -6,8 +6,8 @@
 package spaceshooter.dom;
 
 /**
+ * Update -pickup that updates players weapon on collision.
  *
- * @author Aleksi
  */
 public class Update extends ImageObject implements IPickUp {
 

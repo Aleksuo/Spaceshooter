@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 17,
+      <title>File: 24,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -47,6 +47,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#spaceshooter.dom.Player.java">spaceshooter/dom/Player.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.commands.Command.java">spaceshooter/commands/Command.java</a>
                 </td>
                 <td>
                   0
@@ -103,6 +117,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#spaceshooter.dom.components.CollisionComponent.java">spaceshooter/dom/components/CollisionComponent.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.util.LevelLoader.java">spaceshooter/util/LevelLoader.java</a>
                 </td>
                 <td>
                   0
@@ -200,7 +228,49 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.util.Timer.java">spaceshooter/util/Timer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#spaceshooter.dom.Enemy.java">spaceshooter/dom/Enemy.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.dom.Mine.java">spaceshooter/dom/Mine.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.commands.SpawnEnemyCommand.java">spaceshooter/commands/SpawnEnemyCommand.java</a>
                 </td>
                 <td>
                   0
@@ -228,7 +298,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.managers.Levelmanager.java">spaceshooter/managers/Levelmanager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#spaceshooter.dom.GameObject.java">spaceshooter/dom/GameObject.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.util.CommandComparator.java">spaceshooter/util/CommandComparator.java</a>
                 </td>
                 <td>
                   0

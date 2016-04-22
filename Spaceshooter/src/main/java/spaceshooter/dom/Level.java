@@ -1,7 +1,7 @@
 package spaceshooter.dom;
 
 import java.awt.Color;
-import java.awt.Font;
+
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,20 +22,18 @@ public class Level extends JPanel implements KeyListener {
 
     private Player player;
     private ConcurrentLinkedQueue<GameObject> objektit;
-    
+
     private Scorecounter score;
 
     public Level() {
         this.score = new Scorecounter();
         this.setDoubleBuffered(true);
         this.setBackground(Color.black);
-        
-        
+
         this.player = new Player(0, 0, 32, 32);
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
         this.addKeyListener(this);
         this.objektit.add(player);
-        this.objektit.add(new Update(500,0,10,5,32,32));
 
     }
 
@@ -53,28 +51,30 @@ public class Level extends JPanel implements KeyListener {
             o.draw(g);
         }
         g.setColor(Color.WHITE);
-        g.drawString("Score: "+Integer.toString(this.score.getScore()), 10, 32);
-        g.drawString("Ships: "+Integer.toString(this.player.getShips()), 256, 32);
-        
+        g.drawString("Score: " + Integer.toString(this.score.getScore()), 32, 32);
+        g.drawString("Ships: " + Integer.toString(this.player.getShips()), this.getWidth() - 200, 32);
+        g.drawString("Charges: " + Integer.toString(this.player.getCharges()), this.getWidth() - 100, 32);
 
     }
 
+    /**
+     * Calls private methods update(), checkCollisions() and removeDeadObjects()
+     * every frame.
+     */
     public void tick() {
         update();
         checkCollisions();
         removeDeadObjects();
-        //System.out.println("Objekteja: " + objektit.size());
     }
 
-    public void update() {
+    private void update() {
         for (GameObject o : objektit) {
             o.update(this);
         }
-        System.out.println(this.score.getScore());
     }
 
     //todo eriytä omaan luokkaan
-    public void checkCollisions() {
+    private void checkCollisions() {
         for (GameObject o : objektit) {
             if (o.isAlive()) {
                 for (GameObject t : objektit) {
@@ -93,15 +93,13 @@ public class Level extends JPanel implements KeyListener {
         }
     }
 
-    public void removeDeadObjects() {
+    private void removeDeadObjects() {
         for (Iterator<GameObject> iterator = objektit.iterator(); iterator.hasNext();) {
             GameObject obj = iterator.next();
             if (!obj.isAlive()) {
-                if(obj instanceof Enemy){
-                    this.score.add(100);
-                }
+                obj.onDeath(this);
                 iterator.remove();
-                
+
             }
         }
     }
@@ -112,6 +110,22 @@ public class Level extends JPanel implements KeyListener {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public ConcurrentLinkedQueue<GameObject> getObjektit() {
+        return objektit;
+    }
+
+    public void setObjektit(ConcurrentLinkedQueue<GameObject> objektit) {
+        this.objektit = objektit;
+    }
+
+    public Scorecounter getScore() {
+        return score;
+    }
+
+    public void setScore(Scorecounter score) {
+        this.score = score;
     }
 
     public void addObject(GameObject obj) {
@@ -128,7 +142,7 @@ public class Level extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             this.player.getWeapon().shoot(this);
-            System.out.println("väli painettu");
+
         }
     }
 

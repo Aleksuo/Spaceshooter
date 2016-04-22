@@ -20,12 +20,22 @@ public class Scorecounter {
         this.score = score;
     }
 
+    /**
+     * Increases the score of this counter.
+     *
+     * @param pisteet Points added.
+     */
     public void add(int pisteet) {
         if (pisteet > 0) {
             this.score += pisteet;
         }
     }
 
+    /**
+     * Reduces the score of this counter.
+     *
+     * @param pisteet Points reduced.
+     */
     public void reduce(int pisteet) {
         if (pisteet > 0) {
             this.score -= pisteet;
@@ -35,6 +45,9 @@ public class Scorecounter {
         }
     }
 
+    /**
+     * Sets the score of this counter to 0.
+     */
     public void reset() {
         this.score = 0;
     }

@@ -32,11 +32,13 @@ public class Projectile extends ImageObject {
         }
     }
 
+    @Override
     public void move() {
-        //float dx = this.getPosX() + this.getVelX();
-        float dy = this.getPosY() - this.getVelY();
+        float dx = this.getPosX() + this.getVelX();
+        float dy = this.getPosY() + this.getVelY();
 
         this.setPosY(dy);
+        this.setPosX(dx);
     }
 
     public int getDamage() {

@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 public class Player extends ImageObject {
 
     private int ships;
+    private int charges;
     private Weapon weapon;
 
     public Player(int x, int y, int w, int h) {
@@ -22,7 +23,8 @@ public class Player extends ImageObject {
         ImageIcon icon = new ImageIcon("./Resources/Sprites/alus.png");
         this.setSprite(icon.getImage());
         this.ships = 3;
-        this.weapon = new Weapon(this, 10, 25);
+        this.charges = 3;
+        this.weapon = new Weapon(this, 5, 25);
     }
 
     @Override
@@ -47,7 +49,10 @@ public class Player extends ImageObject {
             this.setPosX(0);
             this.setPosY(0);
 
+        } else if (obj instanceof Update) {
+            this.weapon.upgrade();
         }
+
     }
 
     public int getShips() {
@@ -64,6 +69,14 @@ public class Player extends ImageObject {
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+    }
+
+    public int getCharges() {
+        return charges;
+    }
+
+    public void setCharges(int charges) {
+        this.charges = charges;
     }
 
 }

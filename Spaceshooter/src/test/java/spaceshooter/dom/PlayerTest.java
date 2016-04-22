@@ -51,6 +51,11 @@ public class PlayerTest {
     }
 
     @Test
+    public void pelaajallaKolmeLataustaAlussa() {
+        assertEquals(3, player.getCharges());
+    }
+
+    @Test
     public void pelaajaElossaLuonnissa() {
         assertEquals(true, player.isAlive());
     }
@@ -65,6 +70,13 @@ public class PlayerTest {
     }
 
     @Test
+    public void tormaysPaivitykseenPaivittaaAsetta() {
+        this.player.onCollision(new Update(0, 0, 0, 0, 0, 0));
+        assertEquals(1, this.player.getWeapon().getUpgrades());
+
+    }
+
+    @Test
     public void pelaajaEiElossaAlustenLoppuessa() {
         Enemy dummy = new Mine(0, 0, 0, 0, 0, 0);
         player.onCollision(dummy);
@@ -72,4 +84,5 @@ public class PlayerTest {
         player.onCollision(dummy);
         assertEquals(false, player.isAlive());
     }
+
 }

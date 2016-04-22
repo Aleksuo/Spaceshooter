@@ -8,9 +8,8 @@ import java.io.IOException;
 import java.util.PriorityQueue;
 
 /**
- * Class used for loading level information from textfiles.
- * \n Format(commands are
- * separated by lines): float time, COMMAND, commandargument1,
+ * Class used for loading level information from textfiles. \n Format(commands
+ * are separated by lines): float time, COMMAND, commandargument1,
  * commandargument2...
  */
 public class LevelLoader {

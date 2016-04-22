@@ -49,6 +49,7 @@ public class WeaponTest {
     public void aseLuodaanOikein() {
         assertEquals(10, this.weapon.getFirerate());
         assertEquals(25, this.weapon.getDamage());
+        assertEquals(0, this.weapon.getUpgrades());
     }
 
     @Test
@@ -86,5 +87,20 @@ public class WeaponTest {
     public void kunnollinenTulitusnopeusArvoKelpaa() {
         this.weapon.setFirerate(20);
         assertEquals(20, this.weapon.getFirerate());
+    }
+
+    @Test
+    public void paivittaminenLisaaPaivitystenMaaraa() {
+        this.weapon.upgrade();
+        assertEquals(1, this.weapon.getUpgrades());
+    }
+
+    @Test
+    public void aseidenPaivityksetEivatVoiOllaYliKaksi() {
+        this.weapon.upgrade();
+        this.weapon.upgrade();
+        this.weapon.upgrade();
+        this.weapon.upgrade();
+        assertEquals(2, this.weapon.getUpgrades());
     }
 }

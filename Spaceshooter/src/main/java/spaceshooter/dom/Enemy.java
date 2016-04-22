@@ -1,6 +1,7 @@
 package spaceshooter.dom;
 
 import javax.swing.ImageIcon;
+import java.util.Random;
 
 /**
  * Abstract class for Enemy objects.
@@ -9,9 +10,19 @@ import javax.swing.ImageIcon;
 abstract public class Enemy extends ImageObject {
 
     private int hitpoints;
+    private int score;
 
     public Enemy(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
+
+    }
+
+    @Override
+    public void onDeath(Level level) {
+        level.getScore().add(score);
+        if (new Random().nextInt(10) == 1) {
+            level.addObject(new Update(this.getPosX(), this.getPosY(), 10, 10, 32, 32));
+        }
 
     }
 
@@ -21,6 +32,14 @@ abstract public class Enemy extends ImageObject {
 
     public void setHitpoints(int hitpoints) {
         this.hitpoints = hitpoints;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
 }

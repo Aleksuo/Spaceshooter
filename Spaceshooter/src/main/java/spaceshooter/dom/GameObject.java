@@ -33,16 +33,40 @@ abstract public class GameObject {
         this.isAlive = true;
     }
 
+    /**
+     * Draw method used for drawing objects drawable content
+     *
+     * @param g java graphics object
+     */
     public void draw(Graphics g) {
     }
 
+    /**
+     * Updates object every frame.
+     *
+     * @param taso Objects' current level
+     */
     public void update(Level taso) {
     }
 
+    /**
+     * Used for defining how objects react with each other on collisions.
+     *
+     * @param obj GameObject this object has collided with
+     */
     public void onCollision(GameObject obj) {
     }
-    
-    public void onDeath(){}
+
+    public void move() {
+    }
+
+    /**
+     * Defines objects behavior when it gets removed from level.
+     *
+     * @param level Objects'
+     */
+    public void onDeath(Level level) {
+    }
 
     public float getPosX() {
         return posX;

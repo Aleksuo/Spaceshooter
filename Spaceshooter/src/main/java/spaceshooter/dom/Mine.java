@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 /**
  * Enemy object that follows the player until it is destroyed or it collides
- * with the player(not implemented yet).
+ * with the player.
  *
  */
 public class Mine extends Enemy {
@@ -18,7 +18,8 @@ public class Mine extends Enemy {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/miina.png");
         this.setSprite(icon.getImage());
-        this.setHitpoints(75);
+        this.setHitpoints(125);
+        this.setScore(100);
     }
 
     @Override
@@ -44,7 +45,10 @@ public class Mine extends Enemy {
         }
         if (this.getHitpoints() <= 0) {
             this.setIsAlive(false);
+        } else if (obj instanceof Player) {
+            this.setIsAlive(false);
         }
+
     }
 
 }

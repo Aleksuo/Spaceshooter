@@ -48,19 +48,25 @@ public class Player extends ImageObject {
     @Override
     public void onCollision(GameObject obj) {
         if (obj instanceof Enemy) {
-            if (this.ships >= 1) {
-                this.ships--;
-                if (this.ships < 1) {
-                    this.setIsAlive(false);
-                }
-            }
-            this.setPosX(0);
-            this.setPosY(0);
-
+            this.destroyShip();
         } else if (obj instanceof Update) {
             this.weapon.upgrade();
         }
 
+    }
+
+    /**
+     * Decreases players ship count.
+     */
+    private void destroyShip() {
+
+        this.ships--;
+        if (this.ships < 1) {
+            this.setIsAlive(false);
+        }
+
+        this.setPosX(0);
+        this.setPosY(0);
     }
 
     public int getShips() {

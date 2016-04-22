@@ -50,20 +50,4 @@ public class Mine extends Enemy {
         this.setPosY(this.getPosY() + this.getVelY());
     }
 
-    @Override
-    public void onCollision(GameObject obj) {
-        if (obj instanceof Projectile) {
-            Projectile projectile = (Projectile) obj;
-            int newHp = this.getHitpoints() - projectile.getDamage();
-            this.setHitpoints(newHp);
-
-        }
-        if (this.getHitpoints() <= 0) {
-            this.setIsAlive(false);
-        } else if (obj instanceof Player) {
-            this.setIsAlive(false);
-        }
-
-    }
-
 }

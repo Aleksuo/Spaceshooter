@@ -13,9 +13,11 @@ Toteutetaan kaksiulotteinen  ylhäältäpäin kuvattu shoot'em up -peli. Pelaaja
   * Erikoiskyvyn käyttö*
     * onnistuu jos kykyyn on latauksia
   * Latauksien ja päivitysten poimiminen*
+  * Aluksen tuhoutuminen.
   
 *Pelaajalla tulee olla aluksia jäljellä ja pelin tulee olla aloitettu
 
 
 ![Määrittelyvaiheen luokkakaavio](/dokumentointi/luokkakaavio.png)
 ![Poimiminen](/dokumentointi/poimiminen.png)
+![Viholliseen törmäys](/dokumentointi/viholliseentormays.png)

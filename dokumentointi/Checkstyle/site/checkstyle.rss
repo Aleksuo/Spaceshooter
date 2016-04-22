@@ -60,6 +60,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#spaceshooter.gui.LevelGUI.java">spaceshooter/gui/LevelGUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#spaceshooter.commands.Command.java">spaceshooter/commands/Command.java</a>
                 </td>
                 <td>
@@ -327,20 +341,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#spaceshooter.util.CommandComparator.java">spaceshooter/util/CommandComparator.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#spaceshooter.dom.IPickUp.java">spaceshooter/dom/IPickUp.java</a>
                 </td>
                 <td>
                   0

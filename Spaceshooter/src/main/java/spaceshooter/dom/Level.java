@@ -35,6 +35,7 @@ public class Level extends JPanel implements KeyListener {
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
         this.addKeyListener(this);
         this.objektit.add(player);
+        this.objektit.add(new Update(500,0,10,5,32,32));
 
     }
 

@@ -41,6 +41,8 @@ abstract public class GameObject {
 
     public void onCollision(GameObject obj) {
     }
+    
+    public void onDeath(){}
 
     public float getPosX() {
         return posX;

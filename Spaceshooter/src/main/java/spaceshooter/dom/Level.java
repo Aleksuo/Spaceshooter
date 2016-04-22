@@ -1,6 +1,7 @@
 package spaceshooter.dom;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -9,6 +10,7 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import javax.swing.JPanel;
+import spaceshooter.logic.Scorecounter;
 
 import spaceshooter.util.Collision;
 
@@ -20,10 +22,15 @@ public class Level extends JPanel implements KeyListener {
 
     private Player player;
     private ConcurrentLinkedQueue<GameObject> objektit;
+    
+    private Scorecounter score;
 
     public Level() {
+        this.score = new Scorecounter();
         this.setDoubleBuffered(true);
         this.setBackground(Color.black);
+        
+        
         this.player = new Player(0, 0, 32, 32);
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
         this.addKeyListener(this);
@@ -44,6 +51,10 @@ public class Level extends JPanel implements KeyListener {
 
             o.draw(g);
         }
+        g.setColor(Color.WHITE);
+        g.drawString("Score: "+Integer.toString(this.score.getScore()), 10, 32);
+        g.drawString("Ships: "+Integer.toString(this.player.getShips()), 256, 32);
+        
 
     }
 
@@ -58,6 +69,7 @@ public class Level extends JPanel implements KeyListener {
         for (GameObject o : objektit) {
             o.update(this);
         }
+        System.out.println(this.score.getScore());
     }
 
     //todo eriytä omaan luokkaan
@@ -84,7 +96,11 @@ public class Level extends JPanel implements KeyListener {
         for (Iterator<GameObject> iterator = objektit.iterator(); iterator.hasNext();) {
             GameObject obj = iterator.next();
             if (!obj.isAlive()) {
+                if(obj instanceof Enemy){
+                    this.score.add(100);
+                }
                 iterator.remove();
+                
             }
         }
     }

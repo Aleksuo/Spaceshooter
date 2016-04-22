@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Aleksi
+ * Future GUI for levels.
  */
 public class LevelGUI extends JPanel {
 

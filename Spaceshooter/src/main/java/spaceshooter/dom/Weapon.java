@@ -19,6 +19,13 @@ public class Weapon {
     private Timer timer;
     private double lastFired;
 
+    /**
+     * Constructor for Weapon.
+     *
+     * @param obj Parent object of this Weapon.
+     * @param firerate Firerate of this Weapon.
+     * @param damage Damage of the projectiles created by this Weapon.
+     */
     public Weapon(GameObject obj, int firerate, int damage) {
         this.parent = obj;
         this.timer = new Timer();
@@ -72,6 +79,11 @@ public class Weapon {
         return firerate;
     }
 
+    /**
+     * Sets the firerate for this Weapon.
+     *
+     * @param firerate Positive firerate.
+     */
     public void setFirerate(int firerate) {
         if (firerate > 0) {
             this.firerate = firerate;
@@ -83,6 +95,11 @@ public class Weapon {
         return damage;
     }
 
+    /**
+     * Sets damage for Projectiles created by this Weapon.
+     *
+     * @param damage Positive damage.
+     */
     public void setDamage(int damage) {
         if (damage > 0) {
             this.damage = damage;

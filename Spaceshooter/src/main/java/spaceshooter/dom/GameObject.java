@@ -20,6 +20,16 @@ abstract public class GameObject {
 
     private boolean isAlive;
 
+    /**
+     * Constructor for GameObject.
+     *
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param vx x-velocity.
+     * @param vy y-velocity.
+     * @param w width.
+     * @param h height.
+     */
     public GameObject(float x, float y, float vx, float vy, int w, int h) {
         this.posX = x;
         this.posY = y;
@@ -34,7 +44,7 @@ abstract public class GameObject {
     }
 
     /**
-     * Draw method used for drawing objects drawable content
+     * Draw method used for drawing objects drawable content.
      *
      * @param g java graphics object
      */
@@ -57,6 +67,9 @@ abstract public class GameObject {
     public void onCollision(GameObject obj) {
     }
 
+    /**
+     * Defines objects movement.
+     */
     public void move() {
     }
 

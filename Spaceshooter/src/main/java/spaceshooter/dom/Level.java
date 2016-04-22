@@ -25,6 +25,9 @@ public class Level extends JPanel implements KeyListener {
 
     private Scorecounter score;
 
+    /**
+     * Levels constructor.
+     */
     public Level() {
         this.score = new Scorecounter();
         this.setDoubleBuffered(true);
@@ -44,6 +47,11 @@ public class Level extends JPanel implements KeyListener {
         repaint();
     }
 
+    /**
+     * Draws every object in level.
+     *
+     * @param g java graphics object.
+     */
     public void draw(Graphics g) {
 
         for (GameObject o : objektit) {
@@ -67,13 +75,18 @@ public class Level extends JPanel implements KeyListener {
         removeDeadObjects();
     }
 
+    /**
+     * Calls update for every GameObject in level.
+     */
     private void update() {
         for (GameObject o : objektit) {
             o.update(this);
         }
     }
 
-    //todo eriytä omaan luokkaan
+    /**
+     * Checks collisions between GameObjects.
+     */
     private void checkCollisions() {
         for (GameObject o : objektit) {
             if (o.isAlive()) {
@@ -93,6 +106,9 @@ public class Level extends JPanel implements KeyListener {
         }
     }
 
+    /**
+     * Removes dead GameObjects and calls objects onDeath() method.
+     */
     private void removeDeadObjects() {
         for (Iterator<GameObject> iterator = objektit.iterator(); iterator.hasNext();) {
             GameObject obj = iterator.next();
@@ -128,6 +144,11 @@ public class Level extends JPanel implements KeyListener {
         this.score = score;
     }
 
+    /**
+     * Adds a GameObject to level.
+     *
+     * @param obj GameObject to be added.
+     */
     public void addObject(GameObject obj) {
         this.objektit.add(obj);
     }

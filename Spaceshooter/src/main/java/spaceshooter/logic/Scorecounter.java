@@ -8,6 +8,9 @@ public class Scorecounter {
 
     private int score;
 
+    /**
+     * Constructor for ScoreCounter.
+     */
     public Scorecounter() {
         this.score = 0;
     }

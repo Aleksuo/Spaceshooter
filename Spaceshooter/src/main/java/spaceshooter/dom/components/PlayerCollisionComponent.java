@@ -12,15 +12,12 @@ import spaceshooter.dom.Enemy;
 
 /**
  *
- * @author Aleksi
+ * CollisionComponent for player.
  */
 public class PlayerCollisionComponent extends CollisionComponent {
 
-    public PlayerCollisionComponent() {
-    }
-
     @Override
-    public void onCollision(Object obj) {
+    public void onCollision(GameObject obj) {
         Player p = (Player) this.getObj();
         if (obj instanceof Enemy) {
             if (p.getShips() >= 1) {

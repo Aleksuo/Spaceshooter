@@ -12,6 +12,14 @@ public class SpawnEnemyCommand extends Command {
     private float x;
     private float y;
 
+    /**
+     * Constructor for SpawnEnemyCommand.
+     *
+     * @param time Excecution time in seconds.
+     * @param id Id of the enemy that should be spawned.
+     * @param x x-coordinate for the spawn.
+     * @param y y-coordinate for the spawn.
+     */
     public SpawnEnemyCommand(double time, int id, float x, float y) {
         super(time);
         this.enemyId = id;

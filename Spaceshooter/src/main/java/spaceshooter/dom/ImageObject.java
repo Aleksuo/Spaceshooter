@@ -17,6 +17,16 @@ abstract public class ImageObject extends GameObject {
 
     private Image sprite;
 
+    /**
+     * Constructor for ImageObject.
+     *
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param vx x-velocity.
+     * @param vy y-velocity.
+     * @param w width.
+     * @param h height.
+     */
     public ImageObject(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
     }

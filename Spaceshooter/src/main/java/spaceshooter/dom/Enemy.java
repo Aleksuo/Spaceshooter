@@ -12,6 +12,16 @@ abstract public class Enemy extends ImageObject {
     private int hitpoints;
     private int score;
 
+    /**
+     * Constructor for Enemy object.
+     *
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param vx x-velocity.
+     * @param vy y-velocity.
+     * @param w width.
+     * @param h height.
+     */
     public Enemy(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
 

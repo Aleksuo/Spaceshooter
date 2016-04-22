@@ -15,11 +15,17 @@ public class App extends JFrame {
     private Levelmanager levelmanager;
     private boolean inGame;
 
+    /**
+     * Constructor for App.
+     */
     public App() {
         this.initGUI();
         inGame = true;
     }
 
+    /**
+     * Initializes apps GUI.
+     */
     public void initGUI() {
         this.levelmanager = new Levelmanager();
         this.add(levelmanager.getLevel());
@@ -36,6 +42,9 @@ public class App extends JFrame {
 
     }
 
+    /**
+     * Loop that updates apps current state.
+     */
     public void loop() {
         double nextGameTick = System.currentTimeMillis();
         int loops;

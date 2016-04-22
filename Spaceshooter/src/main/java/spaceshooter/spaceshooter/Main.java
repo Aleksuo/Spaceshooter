@@ -9,10 +9,15 @@ import java.awt.EventQueue;
 
 /**
  *
- * @author Aleksi
+ * Main.
  */
 public class Main {
 
+    /**
+     * Main.
+     *
+     * @param args arguments passed.
+     */
     public static void main(String[] args) {
         App s = new App();
         s.setVisible(true);

@@ -9,7 +9,7 @@ import spaceshooter.dom.GameObject;
 
 /**
  *
- * @author Aleksi
+ * Not in use yet.
  *
  */
 //Toistaiseksi ei käytössä
@@ -17,10 +17,6 @@ import spaceshooter.dom.GameObject;
 public class Component {
 
     private GameObject obj;
-
-    public Component() {
-
-    }
 
     public GameObject getObj() {
         return obj;

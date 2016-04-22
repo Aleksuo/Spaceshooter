@@ -15,7 +15,7 @@ import java.util.PriorityQueue;
 public class LevelLoader {
 
     /**
-     * Method that parses a level file
+     * Method that parses a level file.
      *
      * @param filename Name of the file int path: Resources/Levels/
      * @return Returns a PriorityQueue that has commands sorted in an Ascending
@@ -47,6 +47,12 @@ public class LevelLoader {
         return commands;
     }
 
+    /**
+     * Parses line into a SpawnEnemyCommand.
+     *
+     * @param line Split line from textfile.
+     * @return Returns a command for spawning an enemy.
+     */
     public SpawnEnemyCommand parseCommand(String[] line) {
         double time = Double.parseDouble(line[0]);
         int id = Integer.parseInt(line[2]);

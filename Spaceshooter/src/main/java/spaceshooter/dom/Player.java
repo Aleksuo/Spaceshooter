@@ -18,6 +18,14 @@ public class Player extends ImageObject {
     private int charges;
     private Weapon weapon;
 
+    /**
+     * Constructor for Player.
+     *
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param w width.
+     * @param h height.
+     */
     public Player(int x, int y, int w, int h) {
         super(x, y, 0, 0, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/alus.png");

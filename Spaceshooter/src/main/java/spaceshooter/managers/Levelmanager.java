@@ -9,7 +9,7 @@ import spaceshooter.util.LevelLoader;
 import spaceshooter.util.Timer;
 
 /**
- * Manager used to manage level related things
+ * Manager used to manage level related things.
  *
  */
 public class Levelmanager {
@@ -20,6 +20,9 @@ public class Levelmanager {
 
     private PriorityQueue<Command> commands;
 
+    /**
+     * Constructor for LevelManager.
+     */
     public Levelmanager() {
         this.level = new Level();
         this.levelLoader = new LevelLoader();
@@ -35,8 +38,7 @@ public class Levelmanager {
     public void tick() {
         this.level.tick();
         this.handleCommands();
-        //System.out.println(this.commands.size());
-        //System.out.println(this.timer.elapsedTimeInSeconds());
+
     }
 
     public Level getLevel() {
@@ -47,6 +49,9 @@ public class Levelmanager {
         this.level = level;
     }
 
+    /**
+     * Loads Commands used for events on level.
+     */
     public void loadLevelCommandData() {
         this.commands = levelLoader.loadLevelFromFile("level1.txt");
     }

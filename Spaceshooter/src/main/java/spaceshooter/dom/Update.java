@@ -18,6 +18,16 @@ public class Update extends ImageObject {
     private float beginX;
     private float beginY;
 
+    /**
+     * Constructor for Update.
+     *
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param vx x-velocity.
+     * @param vy y-velocity.
+     * @param w width.
+     * @param h height.
+     */
     public Update(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/update.png");

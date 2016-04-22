@@ -3,7 +3,7 @@ package spaceshooter.util;
 import java.awt.Rectangle;
 
 /**
- * Static class that is used to check collisions
+ * Static class that is used to check collisions.
  *
  */
 public final class Collision {
@@ -11,8 +11,8 @@ public final class Collision {
     /**
      * Checks collision between two rectangles using javas own rectangle class.
      *
-     * @param rect1 hitbox of the first Object
-     * @param rect2 hitbox of the second Object
+     * @param rect1 hitbox of the first Object.
+     * @param rect2 hitbox of the second Object.
      * @return Returns true if there is a collision or false if there is no
      * collision.
      */

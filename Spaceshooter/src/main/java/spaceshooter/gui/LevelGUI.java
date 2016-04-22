@@ -12,5 +12,5 @@ import javax.swing.JPanel;
  * @author Aleksi
  */
 public class LevelGUI extends JPanel {
-    
+
 }

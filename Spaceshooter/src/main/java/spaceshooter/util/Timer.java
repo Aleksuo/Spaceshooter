@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.util;
 
 /**
@@ -18,12 +13,21 @@ public class Timer {
         this.startTime = System.nanoTime();
     }
 
+    /**
+     * Calculates time difference between current time and the start time of
+     * this timer.
+     *
+     * @return Elapsed time in seconds
+     */
     public double elapsedTimeInSeconds() {
         long elapsedTime = System.nanoTime() - this.startTime;
         double seconds = (double) elapsedTime / 1000000000.0;
         return seconds;
     }
 
+    /**
+     * Sets the start time to current time.
+     */
     public void reset() {
         this.startTime = System.nanoTime();
     }

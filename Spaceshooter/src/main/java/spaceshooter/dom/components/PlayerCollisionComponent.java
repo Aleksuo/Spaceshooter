@@ -8,7 +8,7 @@ package spaceshooter.dom.components;
 import spaceshooter.dom.components.CollisionComponent;
 import spaceshooter.dom.GameObject;
 import spaceshooter.dom.Player;
-import spaceshooter.dom.Enemy;
+import spaceshooter.dom.enemys.Enemy;
 
 /**
  *

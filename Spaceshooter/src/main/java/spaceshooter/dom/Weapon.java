@@ -45,17 +45,11 @@ public class Weapon {
         double rate = (1.0 / (double) firerate);
         if (deltaTime > rate) {
             this.lastFired = timer.elapsedTimeInSeconds();
-            float x = this.parent.getPosX() + 16;
-            float y = this.parent.getPosY() - 10;
-            taso.addObject(new Projectile(x, y, 0, -10, 10, 10, this.damage));
-            if (upgrades > 0) {
-                taso.addObject(new Projectile(x, y, -2, -10, 10, 10, this.damage));
-            }
-            if (upgrades > 1) {
-                taso.addObject(new Projectile(x, y, 2, -10, 10, 10, this.damage));
-            }
+            spawnProjectiles(taso);
         }
     }
+    
+    public void spawnProjectiles(Level level){}
 
     /**
      * Increases upgrade count. More upgrades = more projectiles.

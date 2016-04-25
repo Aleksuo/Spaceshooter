@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceshooter.dom;
+package spaceshooter.dom.enemys;
 
 import javax.swing.ImageIcon;
+import spaceshooter.dom.Level;
+import spaceshooter.dom.Player;
 
 /**
  * Enemy object that follows the player until it is destroyed or it collides
@@ -24,12 +26,17 @@ public class Mine extends Enemy {
      * @param w width.
      * @param h height.
      */
-    public Mine(float x, float y, int vx, int vy, int w, int h) {
+    public Mine(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/miina.png");
         this.setSprite(icon.getImage());
         this.setHitpoints(125);
         this.setScore(100);
+    }
+    
+    @Override
+    public Enemy clone(){
+        return new Mine(0,0,this.getVelX(),this.getVelY(),32,32);
     }
 
     @Override

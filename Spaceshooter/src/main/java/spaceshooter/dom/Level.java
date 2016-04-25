@@ -1,5 +1,6 @@
 package spaceshooter.dom;
 
+import spaceshooter.dom.enemys.Saucer;
 import java.awt.Color;
 
 import java.awt.Graphics;
@@ -81,7 +82,23 @@ public class Level extends JPanel implements KeyListener {
     private void update() {
         for (GameObject o : objektit) {
             o.update(this);
+            if(checkIfOutsideScreen(o)){
+                o.setIsAlive(false);
+            }
         }
+    }
+
+    private boolean checkIfOutsideScreen(GameObject obj) {
+        if (obj.getPosX() < 0 || obj.getPosX() > this.getWidth()) {
+            return true;
+        }
+
+        if (obj.getPosY() < 0 || obj.getPosY() > this.getHeight()) {
+            return true;
+        }
+        
+        return false;
+
     }
 
     /**

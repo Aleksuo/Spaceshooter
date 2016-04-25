@@ -23,9 +23,8 @@ public class Projectile extends ImageObject {
      */
     public Projectile(float x, float y, float vx, float vy, int w, int h, int damage) {
         super(x, y, vx, vy, w, h);
-        ImageIcon icon = new ImageIcon("./Resources/Sprites/ammus.png");
-        this.setSprite(icon.getImage());
-        this.setDamage(damage);
+        
+
     }
 
     @Override
@@ -36,12 +35,7 @@ public class Projectile extends ImageObject {
         }
     }
 
-    @Override
-    public void onCollision(GameObject obj) {
-        if (obj instanceof Enemy) {
-            this.setIsAlive(false);
-        }
-    }
+    
 
     @Override
     public void move() {

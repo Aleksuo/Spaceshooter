@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 import spaceshooter.commands.Command;
 import spaceshooter.commands.SpawnEnemyCommand;
 import spaceshooter.dom.Level;
-import spaceshooter.dom.Mine;
+import spaceshooter.dom.enemys.Mine;
 import spaceshooter.util.LevelLoader;
 import spaceshooter.util.Timer;
 
@@ -18,6 +18,8 @@ public class Levelmanager {
     private LevelLoader levelLoader;
     private Timer timer;
 
+    private SpawnManager spawnManager;
+
     private PriorityQueue<Command> commands;
 
     /**
@@ -26,6 +28,7 @@ public class Levelmanager {
     public Levelmanager() {
         this.level = new Level();
         this.levelLoader = new LevelLoader();
+        this.spawnManager = new SpawnManager(this.level);
         this.loadLevelCommandData();
 
         this.timer = new Timer();
@@ -39,14 +42,6 @@ public class Levelmanager {
         this.level.tick();
         this.handleCommands();
 
-    }
-
-    public Level getLevel() {
-        return level;
-    }
-
-    public void setLevel(Level level) {
-        this.level = level;
     }
 
     /**
@@ -66,14 +61,19 @@ public class Levelmanager {
                 && (this.timer.elapsedTimeInSeconds() >= this.commands.peek().getTime())) {
             Command command = this.commands.poll();
             if (command instanceof SpawnEnemyCommand) {
-                SpawnEnemyCommand sec = (SpawnEnemyCommand) command;
-                float x = sec.getX();
-                float y = sec.getY();
-
-                this.level.addObject((new Mine(x, y, 20, 20, 32, 32)));
+                SpawnEnemyCommand spec = (SpawnEnemyCommand) command;
+                this.spawnManager.handleSpawnCommand(spec);
             }
         }
 
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
     }
 
 }

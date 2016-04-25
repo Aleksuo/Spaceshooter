@@ -7,6 +7,7 @@ package spaceshooter.dom;
 
 import java.awt.Point;
 import javax.swing.ImageIcon;
+import spaceshooter.dom.enemys.Enemy;
 
 /**
  * Object that can be controlled with user input.
@@ -32,7 +33,7 @@ public class Player extends ImageObject {
         this.setSprite(icon.getImage());
         this.ships = 3;
         this.charges = 3;
-        this.weapon = new Weapon(this, 5, 25);
+        this.weapon = new PlayerWeapon(this, 5, 25);
     }
 
     @Override
@@ -51,6 +52,8 @@ public class Player extends ImageObject {
             this.destroyShip();
         } else if (obj instanceof Update) {
             this.weapon.upgrade();
+        }else if(obj instanceof EnemyProjectile){
+            this.destroyShip();
         }
 
     }

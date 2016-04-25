@@ -1,7 +1,20 @@
-package spaceshooter.dom;
+package spaceshooter.dom.enemys;
 
 import javax.swing.ImageIcon;
 import java.util.Random;
+import spaceshooter.dom.GameObject;
+
+import spaceshooter.dom.ImageObject;
+
+import spaceshooter.dom.Level;
+
+import spaceshooter.dom.Player;
+
+import spaceshooter.dom.PlayerProjectile;
+
+import spaceshooter.dom.Projectile;
+
+import spaceshooter.dom.Update;
 
 /**
  * Abstract class for Enemy objects.
@@ -38,8 +51,8 @@ abstract public class Enemy extends ImageObject {
 
     @Override
     public void onCollision(GameObject obj) {
-        if (obj instanceof Projectile) {
-            Projectile projectile = (Projectile) obj;
+        if (obj instanceof PlayerProjectile) {
+            Projectile projectile = (PlayerProjectile) obj;
             int newHp = this.getHitpoints() - projectile.getDamage();
             this.setHitpoints(newHp);
 
@@ -51,6 +64,8 @@ abstract public class Enemy extends ImageObject {
         }
 
     }
+
+    public abstract Enemy clone();
 
     public int getHitpoints() {
         return hitpoints;

@@ -24,8 +24,8 @@ public class Saucer extends Enemy {
 
     public Saucer(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
-        this.weapon = new EnemyWeapon(this,5,25);
-        ImageIcon icon = new ImageIcon("./Resources/Sprites/vihollinen.png");
+        this.weapon = new EnemyWeapon(this,2,25);
+        ImageIcon icon = new ImageIcon("./Resources/Sprites/Saucer.png");
         this.setSprite(icon.getImage());
         this.setHitpoints(100);
         this.setScore(150);

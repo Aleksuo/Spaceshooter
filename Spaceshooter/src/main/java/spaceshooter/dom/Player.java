@@ -67,9 +67,6 @@ public class Player extends ImageObject {
         if (this.ships < 1) {
             this.setIsAlive(false);
         }
-
-        this.setPosX(0);
-        this.setPosY(0);
     }
 
     public int getShips() {

@@ -42,9 +42,11 @@ abstract public class Enemy extends ImageObject {
 
     @Override
     public void onDeath(Level level) {
-        level.getScore().add(score);
-        if (new Random().nextInt(10) == 1) {
-            level.addObject(new Update(this.getPosX(), this.getPosY(), 10, 10, 32, 32));
+        if (this.hitpoints == 0) {
+            level.getScore().add(score);
+            if (new Random().nextInt(10) == 1) {
+                level.addObject(new Update(this.getPosX(), this.getPosY(), 10, 10, 32, 32));
+            }
         }
 
     }

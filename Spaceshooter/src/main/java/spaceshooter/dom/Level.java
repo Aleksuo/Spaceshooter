@@ -1,13 +1,16 @@
 package spaceshooter.dom;
 
+import spaceshooter.dom.enemys.Saucer;
 import java.awt.Color;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import javax.swing.ImageIcon;
 
 import javax.swing.JPanel;
 import spaceshooter.logic.Scorecounter;
@@ -24,6 +27,7 @@ public class Level extends JPanel implements KeyListener {
     private ConcurrentLinkedQueue<GameObject> objektit;
 
     private Scorecounter score;
+    private Image background;
 
     /**
      * Levels constructor.
@@ -32,6 +36,9 @@ public class Level extends JPanel implements KeyListener {
         this.score = new Scorecounter();
         this.setDoubleBuffered(true);
         this.setBackground(Color.black);
+        ImageIcon icon = new ImageIcon("./Resources/Sprites/background.png");
+        this.background = icon.getImage();
+        
 
         this.player = new Player(0, 0, 32, 32);
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
@@ -53,6 +60,7 @@ public class Level extends JPanel implements KeyListener {
      * @param g java graphics object.
      */
     public void draw(Graphics g) {
+        g.drawImage(background, 0, 0, this);
 
         for (GameObject o : objektit) {
 
@@ -81,7 +89,23 @@ public class Level extends JPanel implements KeyListener {
     private void update() {
         for (GameObject o : objektit) {
             o.update(this);
+            if(checkIfOutsideScreen(o)){
+                o.setIsAlive(false);
+            }
         }
+    }
+
+    private boolean checkIfOutsideScreen(GameObject obj) {
+        if (obj.getPosX() < 0 || obj.getPosX() > this.getWidth()) {
+            return true;
+        }
+
+        if (obj.getPosY() < 0 || obj.getPosY() > this.getHeight()) {
+            return true;
+        }
+        
+        return false;
+
     }
 
     /**

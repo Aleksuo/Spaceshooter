@@ -41,20 +41,18 @@ public class Weapon {
      * @param taso Current Level
      */
     public void shoot(Level taso) {
-        double deltaTime = this.timer.elapsedTimeInSeconds() - lastFired;
-        double rate = (1.0 / (double) firerate);
-        if (deltaTime > rate) {
-            this.lastFired = timer.elapsedTimeInSeconds();
-            float x = this.parent.getPosX() + 16;
-            float y = this.parent.getPosY() - 10;
-            taso.addObject(new Projectile(x, y, 0, -10, 10, 10, this.damage));
-            if (upgrades > 0) {
-                taso.addObject(new Projectile(x, y, -2, -10, 10, 10, this.damage));
-            }
-            if (upgrades > 1) {
-                taso.addObject(new Projectile(x, y, 2, -10, 10, 10, this.damage));
+        if (this.getParent().isAlive()) {
+            double deltaTime = this.timer.elapsedTimeInSeconds() - lastFired;
+            double rate = (1.0 / (double) firerate);
+            if (deltaTime > rate) {
+                this.lastFired = timer.elapsedTimeInSeconds();
+                spawnProjectiles(taso);
             }
         }
+
+    }
+
+    public void spawnProjectiles(Level level) {
     }
 
     /**

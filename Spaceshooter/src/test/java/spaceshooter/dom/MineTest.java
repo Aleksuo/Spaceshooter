@@ -5,6 +5,7 @@
  */
 package spaceshooter.dom;
 
+import spaceshooter.dom.enemys.Mine;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -48,19 +49,19 @@ public class MineTest {
     // public void hello() {}
     @Test
     public void tormatessaAmmukseenHpVaheneeAmmuksenVahingonVerran() {
-        this.mine.onCollision(new Projectile(0, 0, 0, 0, 0, 0, 20));
+        this.mine.onCollision(new PlayerProjectile(0, 0, 0, 0, 0, 0, 20));
         assertEquals(30, this.mine.getHitpoints());
     }
 
     @Test
     public void tuhoutuuJosTormayksenJalkeenHpOnNolla() {
-        this.mine.onCollision(new Projectile(0, 0, 0, 0, 0, 0, 50));
+        this.mine.onCollision(new PlayerProjectile(0, 0, 0, 0, 0, 0, 50));
         assertEquals(false, this.mine.isAlive());
     }
 
     @Test
     public void tuhoutuuJosTormayksenJalkeenHponPienempiKuinNolla() {
-        this.mine.onCollision(new Projectile(0, 0, 0, 0, 0, 0, 100));
+        this.mine.onCollision(new PlayerProjectile(0, 0, 0, 0, 0, 0, 100));
         assertEquals(false, this.mine.isAlive());
     }
 }

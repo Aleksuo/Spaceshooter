@@ -30,7 +30,7 @@ public class Mine extends Enemy {
         super(x, y, vx, vy, w, h);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/miina.png");
         this.setSprite(icon.getImage());
-        this.setHitpoints(125);
+        this.setHitpoints(75);
         this.setScore(100);
     }
     

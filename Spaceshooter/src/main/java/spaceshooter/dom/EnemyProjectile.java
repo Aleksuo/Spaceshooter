@@ -17,7 +17,6 @@ public class EnemyProjectile extends Projectile {
         super(x, y, vx, vy, w, h, damage);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/vihollisammus.png");
         this.setSprite(icon.getImage());
-        this.setDamage(damage);
     }
 
     @Override

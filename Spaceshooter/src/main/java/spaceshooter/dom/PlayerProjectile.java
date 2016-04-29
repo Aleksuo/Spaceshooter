@@ -29,7 +29,10 @@ public class PlayerProjectile extends Projectile {
         super(x, y, vx, vy, w, h, damage);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/ammus.png");
         this.setSprite(icon.getImage());
+<<<<<<< HEAD
         
+=======
+>>>>>>> master
     }
 
     @Override

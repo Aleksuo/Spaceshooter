@@ -24,10 +24,7 @@ public class Projectile extends ImageObject {
     public Projectile(float x, float y, float vx, float vy, int w, int h, int damage) {
         super(x, y, vx, vy, w, h);
         this.setDamage(damage);
-<<<<<<< HEAD
-=======
 
->>>>>>> master
     }
 
     @Override

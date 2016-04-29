@@ -19,22 +19,23 @@ import spaceshooter.dom.enemys.Saucer;
  * @author Aleksi
  */
 public class SpawnManager {
-    private Map<Integer,Spawner> spawnerMap;
+
+    private Map<Integer, Spawner> spawnerMap;
     private Level level;
-    
-    public SpawnManager(Level level){
+
+    public SpawnManager(Level level) {
         this.level = level;
-        this.spawnerMap = new HashMap<Integer,Spawner>();
+        this.spawnerMap = new HashMap<Integer, Spawner>();
         createSpawners();
-        
+
     }
-    
-    public void createSpawners(){
-        this.spawnerMap.put(1, new Spawner(new Mine(0,0,10,10,32,32)));
-        this.spawnerMap.put(2, new Spawner(new Saucer(0,0,5,5,32,32)));
+
+    public void createSpawners() {
+        this.spawnerMap.put(1, new Spawner(new Mine(0, 0, 10, 10, 32, 32)));
+        this.spawnerMap.put(2, new Spawner(new Saucer(0, 0, 5, 5, 32, 32)));
     }
-    
-    public void handleSpawnCommand(SpawnEnemyCommand spec){
+
+    public void handleSpawnCommand(SpawnEnemyCommand spec) {
         Enemy enemy = this.spawnerMap.get(spec.getEnemyId())
                 .spawnEnemy(spec.getX(), spec.getY());
         this.level.addObject(enemy);

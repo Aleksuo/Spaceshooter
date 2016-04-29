@@ -38,7 +38,6 @@ public class Level extends JPanel implements KeyListener {
         this.setBackground(Color.black);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/background.png");
         this.background = icon.getImage();
-        
 
         this.player = new Player(0, 0, 32, 32);
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
@@ -89,7 +88,7 @@ public class Level extends JPanel implements KeyListener {
     private void update() {
         for (GameObject o : objektit) {
             o.update(this);
-            if(checkIfOutsideScreen(o)){
+            if (checkIfOutsideScreen(o)) {
                 o.setIsAlive(false);
             }
         }
@@ -103,7 +102,7 @@ public class Level extends JPanel implements KeyListener {
         if (obj.getPosY() < 0 || obj.getPosY() > this.getHeight()) {
             return true;
         }
-        
+
         return false;
 
     }

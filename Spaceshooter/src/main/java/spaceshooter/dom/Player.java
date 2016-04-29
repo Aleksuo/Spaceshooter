@@ -52,7 +52,7 @@ public class Player extends ImageObject {
             this.destroyShip();
         } else if (obj instanceof Update) {
             this.weapon.upgrade();
-        }else if(obj instanceof EnemyProjectile){
+        } else if (obj instanceof EnemyProjectile) {
             this.destroyShip();
         }
 

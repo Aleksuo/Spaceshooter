@@ -7,6 +7,7 @@ package spaceshooter.dom;
 
 import javax.swing.ImageIcon;
 import java.lang.*;
+import java.net.URL;
 
 /**
  * Update -pickup that updates players weapon on collision.
@@ -30,7 +31,8 @@ public class Update extends ImageObject {
      */
     public Update(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
-        ImageIcon icon = new ImageIcon("./Resources/Sprites/update.png");
+        URL url = this.getClass().getResource("/Sprites/update.png");
+        ImageIcon icon = new ImageIcon(url);
         this.setSprite(icon.getImage());
         this.beginX = x;
         this.beginY = y;

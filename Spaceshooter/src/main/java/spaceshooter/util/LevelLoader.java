@@ -5,7 +5,12 @@ import spaceshooter.commands.Command;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+
 import java.util.PriorityQueue;
+import spaceshooter.spaceshooter.Main;
 
 /**
  * Class used for loading level information from textfiles. \n Format(commands
@@ -22,8 +27,11 @@ public class LevelLoader {
      * order.
      */
     public PriorityQueue<Command> loadLevelFromFile(String filename) {
+        InputStream url = this.getClass().getResourceAsStream("/Levels/" + filename);
+
         PriorityQueue<Command> commands = new PriorityQueue<Command>(new CommandComparator());
-        try (BufferedReader br = new BufferedReader(new FileReader("Resources/Levels/" + filename))) {
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(url))) {
             String line = br.readLine();
 
             while (line != null) {

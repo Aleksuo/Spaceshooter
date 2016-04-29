@@ -5,6 +5,7 @@
  */
 package spaceshooter.dom;
 
+import java.net.URL;
 import javax.swing.ImageIcon;
 import spaceshooter.dom.enemys.Enemy;
 
@@ -27,7 +28,8 @@ public class PlayerProjectile extends Projectile {
      */
     public PlayerProjectile(float x, float y, float vx, float vy, int w, int h, int damage) {
         super(x, y, vx, vy, w, h, damage);
-        ImageIcon icon = new ImageIcon("./Resources/Sprites/ammus.png");
+        URL url = this.getClass().getResource("/Sprites/ammus.png");
+        ImageIcon icon = new ImageIcon(url);
         this.setSprite(icon.getImage());
 
     }

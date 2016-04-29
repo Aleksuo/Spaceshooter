@@ -5,6 +5,7 @@
  */
 package spaceshooter.dom.enemys;
 
+import java.net.URL;
 import javax.swing.ImageIcon;
 import spaceshooter.dom.Level;
 import spaceshooter.dom.Player;
@@ -28,7 +29,8 @@ public class Mine extends Enemy {
      */
     public Mine(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
-        ImageIcon icon = new ImageIcon("./Resources/Sprites/miina.png");
+        URL url = this.getClass().getResource("/Sprites/miina.png");
+        ImageIcon icon = new ImageIcon(url);
         this.setSprite(icon.getImage());
         this.setHitpoints(75);
         this.setScore(100);

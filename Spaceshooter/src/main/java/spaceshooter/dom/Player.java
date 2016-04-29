@@ -6,6 +6,7 @@
 package spaceshooter.dom;
 
 import java.awt.Point;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import spaceshooter.dom.enemys.Enemy;
 
@@ -29,7 +30,8 @@ public class Player extends ImageObject {
      */
     public Player(int x, int y, int w, int h) {
         super(x, y, 0, 0, w, h);
-        ImageIcon icon = new ImageIcon("./Resources/Sprites/alus.png");
+        URL url = this.getClass().getResource("/Sprites/alus.png");
+        ImageIcon icon = new ImageIcon(url);
         this.setSprite(icon.getImage());
         this.ships = 3;
         this.charges = 3;

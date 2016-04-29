@@ -52,6 +52,11 @@ public class Weapon {
 
     }
 
+    /**
+     * Spawns projectiles to the current level.
+     *
+     * @param level Current level.
+     */
     public void spawnProjectiles(Level level) {
     }
 

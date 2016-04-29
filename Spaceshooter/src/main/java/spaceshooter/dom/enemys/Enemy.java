@@ -67,6 +67,11 @@ abstract public class Enemy extends ImageObject {
 
     }
 
+    /**
+     * Creates a copy of this object.
+     *
+     * @return Copy of this object.
+     */
     public abstract Enemy clone();
 
     public int getHitpoints() {

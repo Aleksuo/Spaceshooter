@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.URL;
 
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -36,7 +37,8 @@ public class Level extends JPanel implements KeyListener {
         this.score = new Scorecounter();
         this.setDoubleBuffered(true);
         this.setBackground(Color.black);
-        ImageIcon icon = new ImageIcon("./Resources/Sprites/background.png");
+        URL url = this.getClass().getResource("/Sprites/background.png");
+        ImageIcon icon = new ImageIcon(url);
         this.background = icon.getImage();
 
         this.player = new Player(0, 0, 32, 32);

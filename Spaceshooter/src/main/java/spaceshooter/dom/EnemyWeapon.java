@@ -6,11 +6,18 @@
 package spaceshooter.dom;
 
 /**
+ * Weapon used by Enemys. Spawns EnemyProjectiles.
  *
- * @author Aleksi
  */
 public class EnemyWeapon extends Weapon {
 
+    /**
+     * Constructor for EnemyWeapon.
+     *
+     * @param obj Parent object.
+     * @param firerate Weapons firerate.
+     * @param damage Weapons damage.
+     */
     public EnemyWeapon(GameObject obj, int firerate, int damage) {
         super(obj, firerate, damage);
     }

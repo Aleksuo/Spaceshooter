@@ -8,17 +8,28 @@ package spaceshooter.dom;
 import spaceshooter.dom.enemys.Enemy;
 
 /**
- *
- * @author Aleksi
+ * Spawner implemented using Prototype-pattern.
  */
 public class Spawner {
 
     private Enemy prototype;
 
+    /**
+     * Constructor for Spawner.
+     *
+     * @param prototype Enemy this Spawner spawns.
+     */
     public Spawner(Enemy prototype) {
         this.prototype = prototype;
     }
 
+    /**
+     * Returns a copy of the prototype given to this spawner.
+     *
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @return Returns a new enemy object.
+     */
     public Enemy spawnEnemy(float x, float y) {
         Enemy enemy = this.prototype.clone();
         enemy.setPosX(x);

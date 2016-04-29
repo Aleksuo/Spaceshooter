@@ -1,8 +1,10 @@
 spaceshooter.commands
 spaceshooter.dom
 spaceshooter.dom.components
+spaceshooter.dom.enemys
 spaceshooter.gui
 spaceshooter.logic
 spaceshooter.managers
 spaceshooter.spaceshooter
+spaceshooter.states
 spaceshooter.util

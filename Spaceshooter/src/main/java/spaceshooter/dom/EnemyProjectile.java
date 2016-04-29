@@ -11,13 +11,14 @@ import javax.swing.ImageIcon;
  *
  * @author Aleksi
  */
-public class EnemyProjectile extends Projectile{
+public class EnemyProjectile extends Projectile {
 
     public EnemyProjectile(float x, float y, float vx, float vy, int w, int h, int damage) {
         super(x, y, vx, vy, w, h, damage);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/vihollisammus.png");
         this.setSprite(icon.getImage());
     }
+
     @Override
     public void onCollision(GameObject obj) {
         if (obj instanceof Player) {

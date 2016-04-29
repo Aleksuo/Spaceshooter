@@ -33,10 +33,10 @@ public class Mine extends Enemy {
         this.setHitpoints(75);
         this.setScore(100);
     }
-    
+
     @Override
-    public Enemy clone(){
-        return new Mine(0,0,this.getVelX(),this.getVelY(),32,32);
+    public Enemy clone() {
+        return new Mine(0, 0, this.getVelX(), this.getVelY(), 32, 32);
     }
 
     @Override

@@ -69,10 +69,10 @@ public class ProjectileTest {
         assertEquals(25, this.projectile.getDamage());
     }
 
-   /* @Test
-    public void tormatessaViholliseenAmmusTuhoutuu() {
-        this.projectile.onCollision(new Mine(0, 0, 0, 0, 0, 0));
-        assertEquals(false, this.projectile.isAlive());
-    }
-    */
+    /* @Test
+     public void tormatessaViholliseenAmmusTuhoutuu() {
+     this.projectile.onCollision(new Mine(0, 0, 0, 0, 0, 0));
+     assertEquals(false, this.projectile.isAlive());
+     }
+     */
 }

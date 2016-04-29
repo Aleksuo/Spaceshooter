@@ -12,12 +12,14 @@ import spaceshooter.dom.enemys.Enemy;
  * @author Aleksi
  */
 public class Spawner {
+
     private Enemy prototype;
-    public Spawner(Enemy prototype){
+
+    public Spawner(Enemy prototype) {
         this.prototype = prototype;
     }
-    
-    public Enemy spawnEnemy(float x, float y){
+
+    public Enemy spawnEnemy(float x, float y) {
         Enemy enemy = this.prototype.clone();
         enemy.setPosX(x);
         enemy.setPosY(y);

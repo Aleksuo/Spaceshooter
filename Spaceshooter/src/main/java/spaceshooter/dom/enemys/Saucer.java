@@ -17,30 +17,30 @@ import spaceshooter.dom.Weapon;
  * @author Aleksi
  */
 public class Saucer extends Enemy {
+
     private int tick = 0;
-   
-    
+
     private Weapon weapon;
 
     public Saucer(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
-        this.weapon = new EnemyWeapon(this,2,25);
+        this.weapon = new EnemyWeapon(this, 2, 25);
         ImageIcon icon = new ImageIcon("./Resources/Sprites/Saucer.png");
         this.setSprite(icon.getImage());
         this.setHitpoints(100);
         this.setScore(150);
-       
+
     }
-    
+
     @Override
-    public void move(){
+    public void move() {
         tick++;
         this.setPosX(this.getPosX() + 20 * (float) Math.cos(tick * 0.05 * Math.PI));
         this.setPosY(this.getPosY() + this.getVelY());
     }
-    
+
     @Override
-    public void update(Level level){
+    public void update(Level level) {
         move();
         this.weapon.shoot(level);
     }
@@ -50,7 +50,5 @@ public class Saucer extends Enemy {
         return new Saucer(this.getPosX(), this.getPosY(), this.getVelX(),
                 this.getVelY(), this.getWidth(), this.getHeight());
     }
-    
-    
-    
+
 }

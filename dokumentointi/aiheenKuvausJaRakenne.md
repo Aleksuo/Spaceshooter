@@ -17,6 +17,7 @@ Toteutetaan kaksiulotteinen  ylhäältäpäin kuvattu shoot'em up -peli. Pelaaja
   
 *Pelaajalla tulee olla aluksia jäljellä ja pelin tulee olla aloitettu
 
+Sovellus(App) sisältää tasomanagerin(LevelManager) joka tasonlataajan(LevelLoader) avulla lataa tekstitiedostosta listan tasoon liittyvistä komennoista(Commands). Tasomanageri jakaa komentojaan alimanagereilleen esim. vihollisten ilmentämiseen tarkoitetut SpawnEnemyCommandit menevät SpawnManagerille, joka ilmentää peliobjektin(GameObject) tasoon. 
 
 ![Määrittelyvaiheen luokkakaavio](/dokumentointi/luokkakaavio.png)
 ![Poimiminen](/dokumentointi/poimiminen.png)

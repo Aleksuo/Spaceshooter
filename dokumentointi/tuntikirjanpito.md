@@ -14,3 +14,5 @@ Päivä | Tunnit | Kuvaus
 15.4.2016 | 4.0h | Testien tekemistä + javadoc + deadlinen viimeistelyä
 16.4.2016 | 0.5h | Tasojen prototyyppi GUI
 22.4.2016 | 5.0h | Javadoc +testejä + lisää toiminnallisuutta + sekvenssikaaviot
+23.4.2016 | 6.0h | Uusia luokkia ja refaktorointia.
+29.4.2016 | 6.0h | Deadlineen liittyviä asioita

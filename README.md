@@ -9,3 +9,4 @@ Aiheena perinteinen shoot'em up - peli, jossa pelaajan on päämääränä selvi
 - [Tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
 - [Checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/Sopulius/Spaceshooter/blob/master/dokumentointi/Checkstyle/site/checkstyle.html)
 - [Pit-raportti](https://htmlpreview.github.io/?https://github.com/Sopulius/Spaceshooter/blob/master/dokumentointi/pit-reports/201604292325/index.html)
+- [Käyttöohjeet](dokumentointi/Käyttöohjeet.md)

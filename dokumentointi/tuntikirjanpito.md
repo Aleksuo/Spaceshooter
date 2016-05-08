@@ -16,3 +16,5 @@ Päivä | Tunnit | Kuvaus
 22.4.2016 | 5.0h | Javadoc +testejä + lisää toiminnallisuutta + sekvenssikaaviot
 23.4.2016 | 6.0h | Uusia luokkia ja refaktorointia.
 29.4.2016 | 6.0h | Deadlineen liittyviä asioita
+7.5.2016  | 6.0h | Käyttöliittymää
+8.5.2016  | 8.0h | Viimeistelyä

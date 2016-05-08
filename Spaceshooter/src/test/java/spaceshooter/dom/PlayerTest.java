@@ -5,6 +5,7 @@
  */
 package spaceshooter.dom;
 
+import spaceshooter.dom.pickups.Update;
 import spaceshooter.dom.enemys.Mine;
 import org.junit.After;
 import org.junit.AfterClass;

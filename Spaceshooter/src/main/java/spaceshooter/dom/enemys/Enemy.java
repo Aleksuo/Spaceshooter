@@ -10,11 +10,11 @@ import spaceshooter.dom.Level;
 
 import spaceshooter.dom.Player;
 
-import spaceshooter.dom.PlayerProjectile;
+import spaceshooter.dom.projectiles.PlayerProjectile;
 
-import spaceshooter.dom.Projectile;
+import spaceshooter.dom.projectiles.Projectile;
 
-import spaceshooter.dom.Update;
+import spaceshooter.dom.pickups.Update;
 
 /**
  * Abstract class for Enemy objects.

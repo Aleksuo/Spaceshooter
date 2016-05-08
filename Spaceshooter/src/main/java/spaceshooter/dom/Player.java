@@ -5,6 +5,10 @@
  */
 package spaceshooter.dom;
 
+import spaceshooter.dom.pickups.Update;
+import spaceshooter.dom.weapons.Weapon;
+import spaceshooter.dom.weapons.PlayerWeapon;
+import spaceshooter.dom.projectiles.EnemyProjectile;
 import java.awt.Point;
 import java.net.URL;
 import javax.swing.ImageIcon;
@@ -40,7 +44,7 @@ public class Player extends ImageObject {
 
     @Override
     public void update(Level taso) {
-        Point piste = taso.getMousePosition();
+        Point piste = taso.getMouse();
         if (piste != null) {
             this.setPosX(piste.x);
             this.setPosY(piste.y);

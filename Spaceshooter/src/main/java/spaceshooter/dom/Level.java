@@ -5,6 +5,7 @@ import java.awt.Color;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.net.URL;
@@ -22,7 +23,7 @@ import spaceshooter.util.Collision;
  * Class that holds data for a level.
  *
  */
-public class Level extends JPanel implements KeyListener {
+public class Level {
 
     private Player player;
     private ConcurrentLinkedQueue<GameObject> objektit;
@@ -30,29 +31,28 @@ public class Level extends JPanel implements KeyListener {
     private Scorecounter score;
     private Image background;
 
+    private int width;
+    private int height;
+
+    private Point mouse;
+
     /**
      * Levels constructor.
      */
     public Level() {
+        this.width = 800;
+        this.height = 640;
         this.score = new Scorecounter();
-        this.setDoubleBuffered(true);
-        this.setBackground(Color.black);
+
         URL url = this.getClass().getResource("/Sprites/background.png");
         ImageIcon icon = new ImageIcon(url);
         this.background = icon.getImage();
 
         this.player = new Player(0, 0, 32, 32);
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
-        this.addKeyListener(this);
+
         this.objektit.add(player);
 
-    }
-
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        draw(g);
-        repaint();
     }
 
     /**
@@ -61,16 +61,17 @@ public class Level extends JPanel implements KeyListener {
      * @param g java graphics object.
      */
     public void draw(Graphics g) {
-        g.drawImage(background, 0, 0, this);
+        g.drawImage(background, 0, 0, null);
 
         for (GameObject o : objektit) {
 
             o.draw(g);
         }
+
         g.setColor(Color.WHITE);
         g.drawString("Score: " + Integer.toString(this.score.getScore()), 32, 32);
-        g.drawString("Ships: " + Integer.toString(this.player.getShips()), this.getWidth() - 200, 32);
-        g.drawString("Charges: " + Integer.toString(this.player.getCharges()), this.getWidth() - 100, 32);
+        g.drawString("Ships: " + Integer.toString(this.player.getShips()), 600, 32);
+        g.drawString("Charges: " + Integer.toString(this.player.getCharges()), 700, 32);
 
     }
 
@@ -90,10 +91,25 @@ public class Level extends JPanel implements KeyListener {
     private void update() {
         for (GameObject o : objektit) {
             o.update(this);
-            if (checkIfOutsideScreen(o)) {
+            keepPlayerInsideLevel();
+            if (checkIfOutsideScreen(o) && !(o instanceof Player)) {
                 o.setIsAlive(false);
             }
         }
+
+    }
+
+    private void keepPlayerInsideLevel() {
+        if (this.player.getPosX() < 0) {
+            this.player.setPosX(0);
+        } else if (this.player.getPosY() < 0) {
+            this.player.setPosX(0);
+        } else if (this.player.getPosY() > this.width) {
+            this.player.setPosX(this.width - this.player.getWidth());
+        } else if (this.player.getPosY() > this.getHeight()) {
+            this.player.setPosY(this.height - this.player.getHeight());
+        }
+
     }
 
     private boolean checkIfOutsideScreen(GameObject obj) {
@@ -178,22 +194,37 @@ public class Level extends JPanel implements KeyListener {
         this.objektit.add(obj);
     }
 
+    public Image getBackground() {
+        return background;
+    }
+
+    public void setBackground(Image background) {
+        this.background = background;
+    }
+
     //todo tee omaan luokkaan listenerit
-    @Override
-    public void keyTyped(KeyEvent e) {
-
+    public int getWidth() {
+        return width;
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            this.player.getWeapon().shoot(this);
-
-        }
+    public void setWidth(int width) {
+        this.width = width;
     }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public Point getMouse() {
+        return mouse;
+    }
+
+    public void setMouse(Point mouse) {
+        this.mouse = mouse;
     }
 
 }

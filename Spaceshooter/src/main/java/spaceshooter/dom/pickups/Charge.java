@@ -1,6 +1,7 @@
-package spaceshooter.dom;
+package spaceshooter.dom.pickups;
 
 import javax.swing.ImageIcon;
+import spaceshooter.dom.ImageObject;
 
 /**
  * Charge -pickup that gives player a charge on collision.

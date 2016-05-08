@@ -3,11 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceshooter.dom;
+package spaceshooter.dom.pickups;
 
 import javax.swing.ImageIcon;
 import java.lang.*;
 import java.net.URL;
+import spaceshooter.dom.GameObject;
+import spaceshooter.dom.ImageObject;
+import spaceshooter.dom.Level;
+import spaceshooter.dom.Player;
 
 /**
  * Update -pickup that updates players weapon on collision.

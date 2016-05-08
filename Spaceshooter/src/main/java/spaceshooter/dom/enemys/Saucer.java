@@ -8,10 +8,10 @@ package spaceshooter.dom.enemys;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import spaceshooter.dom.enemys.Enemy;
-import spaceshooter.dom.EnemyWeapon;
+import spaceshooter.dom.weapons.EnemyWeapon;
 import spaceshooter.dom.GameObject;
 import spaceshooter.dom.Level;
-import spaceshooter.dom.Weapon;
+import spaceshooter.dom.weapons.Weapon;
 
 /**
  * Enemy that moves and shoots projectiles towards the player.
@@ -36,7 +36,7 @@ public class Saucer extends Enemy {
     public Saucer(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
         this.weapon = new EnemyWeapon(this, 2, 25);
-        URL url = this.getClass().getResource("/Sprites/Saucer.png");
+        URL url = this.getClass().getResource("/Sprites/saucer.png");
         ImageIcon icon = new ImageIcon(url);
         this.setSprite(icon.getImage());
         this.setHitpoints(100);

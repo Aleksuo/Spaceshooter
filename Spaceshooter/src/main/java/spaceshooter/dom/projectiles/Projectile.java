@@ -1,6 +1,8 @@
-package spaceshooter.dom;
+package spaceshooter.dom.projectiles;
 
 import javax.swing.ImageIcon;
+import spaceshooter.dom.ImageObject;
+import spaceshooter.dom.Level;
 
 /**
  * Object that can be fired with a weapon. This object can iflict damage on

@@ -1,10 +1,17 @@
 package spaceshooter.managers;
 
+import com.sun.glass.events.KeyEvent;
+import java.awt.Graphics;
+import java.awt.Point;
 import java.util.PriorityQueue;
+import javafx.scene.input.KeyCode;
 import spaceshooter.commands.Command;
 import spaceshooter.commands.SpawnEnemyCommand;
+import spaceshooter.dom.GameObject;
 import spaceshooter.dom.Level;
+import spaceshooter.dom.enemys.Enemy;
 import spaceshooter.dom.enemys.Mine;
+import spaceshooter.spaceshooter.KeyManager;
 import spaceshooter.util.LevelLoader;
 import spaceshooter.util.Timer;
 
@@ -32,6 +39,17 @@ public class Levelmanager {
         this.loadLevelCommandData();
 
         this.timer = new Timer();
+    }
+
+    public void render(Graphics g) {
+        this.level.draw(g);
+    }
+
+    public void handleInput(KeyManager km, Point point) {
+        if (km.isPressed(KeyEvent.VK_SPACE)) {
+            this.level.getPlayer().getWeapon().shoot(level);
+        }
+        this.level.setMouse(point);
     }
 
     /**
@@ -66,6 +84,21 @@ public class Levelmanager {
             }
         }
 
+    }
+
+    public boolean checkIfIsOver() {
+        if (!this.level.getPlayer().isAlive()) {
+            return true;
+        }
+        if (this.commands.isEmpty()) {
+            for (GameObject object : this.level.getObjektit()) {
+                if (object instanceof Enemy) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     public Level getLevel() {

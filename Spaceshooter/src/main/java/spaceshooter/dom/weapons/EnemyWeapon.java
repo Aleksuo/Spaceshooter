@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceshooter.dom;
+package spaceshooter.dom.weapons;
+
+import spaceshooter.dom.GameObject;
+import spaceshooter.dom.Level;
+import spaceshooter.dom.Player;
+import spaceshooter.dom.weapons.Weapon;
+import spaceshooter.dom.projectiles.EnemyProjectile;
 
 /**
  * Weapon used by Enemys. Spawns EnemyProjectiles.

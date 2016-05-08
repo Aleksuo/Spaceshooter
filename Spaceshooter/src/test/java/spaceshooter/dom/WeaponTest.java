@@ -5,6 +5,7 @@
  */
 package spaceshooter.dom;
 
+import spaceshooter.dom.weapons.Weapon;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

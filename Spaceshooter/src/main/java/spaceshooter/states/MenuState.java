@@ -1,0 +1,83 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package spaceshooter.states;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.event.KeyEvent;
+import java.net.URL;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SpringLayout;
+import spaceshooter.gui.MenuGUI;
+import spaceshooter.gui.Window;
+import spaceshooter.managers.StateManager;
+import spaceshooter.spaceshooter.KeyManager;
+
+/**
+ *
+ * @author Aleksi
+ */
+public class MenuState extends GameState {
+
+    private Image background;
+
+    public MenuState(StateManager manager) {
+        super(manager);
+
+        URL url = this.getClass().getResource("/Sprites/background.png");
+        ImageIcon icon = new ImageIcon(url);
+        this.background = icon.getImage();
+
+    }
+
+    @Override
+    public void entering() {
+
+        //this.window.getFrame().show();
+        //this.window.getFrame().pack();
+        //this.window.getFrame().setSize(new Dimension(600, 300));
+    }
+
+    @Override
+    public void leaving() {
+
+    }
+
+    @Override
+    public void tick() {
+
+    }
+
+    @Override
+    public void render(Graphics g) {
+        g.drawImage(background, 0, 0, null);
+        g.setFont(new Font("ComicSans", Font.BOLD, 50));
+        g.drawString("SPACESHOOTER", 200, 100);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+        g.drawString("Press G to start the game", 300, 320);
+        g.drawString("        or ", 300, 340);
+        g.drawString("Press Escape to exit the game", 300, 360);
+    }
+
+    @Override
+    public void handleInput(KeyManager km, Point point) {
+        if (km.isPressed(KeyEvent.VK_G)) {
+            this.getStateManager().pushState(new GameplayState(this.getStateManager()));
+        } else if (km.isPressed(KeyEvent.VK_ESCAPE)) {
+            this.getStateManager().popState();
+        }
+    }
+
+}

@@ -1,4 +1,8 @@
-package spaceshooter.dom;
+package spaceshooter.dom.weapons;
+
+import spaceshooter.dom.GameObject;
+import spaceshooter.dom.Level;
+import spaceshooter.dom.projectiles.PlayerProjectile;
 
 /**
  * Weapon used by player.

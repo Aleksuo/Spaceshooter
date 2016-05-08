@@ -1,18 +1,29 @@
 package spaceshooter.spaceshooter;
 
+import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import spaceshooter.dom.Level;
+import spaceshooter.gui.Window;
 import spaceshooter.managers.Levelmanager;
+import spaceshooter.managers.StateManager;
+import spaceshooter.states.GameState;
+import spaceshooter.states.GameplayState;
+import spaceshooter.states.MenuState;
 
 /**
  * Base for an application.
  *
  */
-public class App extends JFrame {
+public class App {
 
-    private Levelmanager levelmanager;
+    private Window window;
+    private KeyManager keymanager;
+    private StateManager statemanager;
+
     private boolean inGame;
 
     /**
@@ -21,25 +32,32 @@ public class App extends JFrame {
     public App() {
         this.initGUI();
         inGame = true;
+        this.keymanager = new KeyManager();
+        this.statemanager = new StateManager();
+        this.window.getFrame().addKeyListener(keymanager);
     }
 
     /**
      * Initializes apps GUI.
      */
     public void initGUI() {
-        this.levelmanager = new Levelmanager();
-        this.add(levelmanager.getLevel());
-        this.pack();
-        this.setSize(800, 600);
-        this.setTitle("Shmup");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        levelmanager.getLevel().requestFocus();
+        this.window = new Window(800, 640);
 
-        this.setCursor(this.getToolkit().createCustomCursor(
-                new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
-                "null"));
+    }
 
+    private void render() {
+        BufferStrategy bs = window.getCanvas().getBufferStrategy();
+        if (bs == null) {
+            window.getCanvas().createBufferStrategy(3);
+            return;
+        }
+        Graphics g = bs.getDrawGraphics();
+        g.clearRect(0, 0, this.window.getWidth(), this.window.getHeight());
+
+        this.statemanager.renderState(g);
+
+        bs.show();
+        g.dispose();
     }
 
     /**
@@ -54,7 +72,15 @@ public class App extends JFrame {
             while (System.currentTimeMillis() > nextGameTick
                     && loops < 5) {
 
-                this.levelmanager.tick();
+                if (!this.statemanager.getStates().isEmpty()) {
+                    this.statemanager.handleStateInput(this.keymanager, this.window.getFrame().getMousePosition());
+
+                    this.statemanager.tickState();
+                    render();
+                } else {
+                    this.inGame = false;
+                    this.window.getFrame().dispatchEvent(new WindowEvent(this.window.getFrame(), WindowEvent.WINDOW_CLOSING));
+                }
 
                 nextGameTick += 1000 / 15;
                 loops++;

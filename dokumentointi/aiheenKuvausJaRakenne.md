@@ -19,6 +19,7 @@ Toteutetaan kaksiulotteinen  ylhäältäpäin kuvattu shoot'em up -peli. Pelaaja
 
 Sovellus(App) sisältää tasomanagerin(LevelManager) joka tasonlataajan(LevelLoader) avulla lataa tekstitiedostosta listan tasoon liittyvistä komennoista(Commands). Tasomanageri jakaa komentojaan alimanagereilleen esim. vihollisten ilmentämiseen tarkoitetut SpawnEnemyCommandit menevät SpawnManagerille, joka ilmentää peliobjektin(GameObject) tasoon. 
 
-![Määrittelyvaiheen luokkakaavio](/dokumentointi/luokkakaavio.png)
+![luokkakaavio osa1](/dokumentointi/luokkakaavio1.png)
+![luokkakaavio osa2](/dokumentointi/luokkakaavio2.png)
 ![Poimiminen](/dokumentointi/poimiminen.png)
 ![Viholliseen törmäys](/dokumentointi/viholliseentormays.png)

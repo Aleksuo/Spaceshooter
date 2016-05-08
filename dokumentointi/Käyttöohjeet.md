@@ -1,5 +1,5 @@
 **Menu:**
-Pelin käynnistyessä pelaajallee avautuu ikkuna, jossa on pelin menu.
+Pelin käynnistyessä pelaajalle avautuu ikkuna, jossa on pelin menu.
 Menusta pelaamaan pääsee painamalla G-painiketta. Painamalla Escape-painiketta
 peli sulkeutuu.
 

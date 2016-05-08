@@ -1,4 +1,5 @@
 package spaceshooter.dom;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -9,10 +10,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import javax.swing.ImageIcon;
 import spaceshooter.logic.Scorecounter;
 import spaceshooter.util.Collision;
+
 /**
  * Class that holds data for a level.
  */
 public class Level {
+
     private Player player;
     private ConcurrentLinkedQueue<GameObject> objektit;
     private Scorecounter score;
@@ -20,6 +23,7 @@ public class Level {
     private int width;
     private int height;
     private Point mouse;
+
     /**
      * Levels constructor.
      */
@@ -37,7 +41,6 @@ public class Level {
 
     /**
      * Draws every object in level.
-     *
      * @param g java graphics object.
      */
     public void draw(Graphics g) {
@@ -60,7 +63,6 @@ public class Level {
         checkCollisions();
         removeDeadObjects();
     }
-
     /**
      * Calls update for every GameObject in level.
      */
@@ -73,7 +75,6 @@ public class Level {
             }
         }
     }
-
     /**
      * Returns player to the screen.
      */
@@ -81,17 +82,17 @@ public class Level {
         if (this.player.getPosX() < 0) {
             this.player.setPosX(0);
         } else if (this.player.getPosY() < 0) {
-            this.player.setPosX(0);
-        } else if (this.player.getPosY() > this.width) {
+            this.player.setPosY(0);
+        } else if (this.player.getPosX() + 32 > this.width) {
             this.player.setPosX(this.width - this.player.getWidth());
-        } else if (this.player.getPosY() > this.getHeight()) {
+        } else if (this.player.getPosY() + 32 > this.getHeight()) {
             this.player.setPosY(this.height - this.player.getHeight());
         }
 
     }
-
     /**
      * Checks when a GameObject has moved out of screen.
+     *
      * @param obj GameObject that is checked.
      * @return Returns true if object was out, else false.
      */
@@ -104,7 +105,6 @@ public class Level {
         }
         return false;
     }
-
     /**
      * Checks collisions between GameObjects.
      */

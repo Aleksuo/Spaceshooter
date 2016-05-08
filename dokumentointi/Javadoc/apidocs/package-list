@@ -2,7 +2,12 @@ spaceshooter.commands
 spaceshooter.dom
 spaceshooter.dom.components
 spaceshooter.dom.enemys
+spaceshooter.dom.pickups
+spaceshooter.dom.projectiles
+spaceshooter.dom.specials
+spaceshooter.dom.weapons
 spaceshooter.gui
+spaceshooter.input
 spaceshooter.logic
 spaceshooter.managers
 spaceshooter.spaceshooter

@@ -28,7 +28,7 @@ abstract public class GameState {
     public abstract void entering();
 
     /**
-     * Excecuted when leving gamestate.
+     * Excecuted when leaving gamestate.
      */
     public abstract void leaving();
 

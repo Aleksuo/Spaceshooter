@@ -12,7 +12,7 @@ import spaceshooter.managers.StateManager;
 import spaceshooter.input.KeyManager;
 
 /**
- * State that is used when in menu.
+ * State that is used when menu is displayed.
  *
  */
 public class MenuState extends GameState {

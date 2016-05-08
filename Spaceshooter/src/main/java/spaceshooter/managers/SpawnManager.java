@@ -15,7 +15,7 @@ import spaceshooter.dom.Spawner;
 import spaceshooter.dom.enemys.Saucer;
 
 /**
- * Class that manages the spawners for enemys.
+ * Class that manages spawners.
  *
  */
 public class SpawnManager {

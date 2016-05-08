@@ -5,8 +5,6 @@
  */
 package spaceshooter.dom;
 
-import spaceshooter.dom.projectiles.PlayerProjectile;
-import spaceshooter.dom.enemys.Mine;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,27 +16,25 @@ import static org.junit.Assert.*;
  *
  * @author Aleksi
  */
-public class MineTest {
-
-    private Mine mine;
-
-    public MineTest() {
+public class ShieldTest {
+    private Shield shield;
+    
+    public ShieldTest() {
     }
-
+    
     @BeforeClass
     public static void setUpClass() {
     }
-
+    
     @AfterClass
     public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
-        this.mine = new Mine(0, 0, 0, 0, 0, 0);
-        this.mine.setHitpoints(50);
+        this.shield = new Shield(0,0,0,0,0,0,3,new Player(0,0,0,0));
     }
-
+    
     @After
     public void tearDown() {
     }
@@ -49,20 +45,25 @@ public class MineTest {
     // @Test
     // public void hello() {}
     @Test
-    public void tormatessaAmmukseenHpVaheneeAmmuksenVahingonVerran() {
-        this.mine.onCollision(new PlayerProjectile(0, 0, 0, 0, 0, 0, 20));
-        assertEquals(30, this.mine.getHitpoints());
+    public void luodaanOikein(){
+        assertEquals(3,this.shield.getTicks());
+        assertNotNull(this.shield.getParent());
     }
-
+    
     @Test
-    public void tuhoutuuJosTormayksenJalkeenHpOnNolla() {
-        this.mine.onCollision(new PlayerProjectile(0, 0, 0, 0, 0, 0, 50));
-        assertEquals(false, this.mine.isAlive());
+    public void tickVahentaaTickeja(){
+        this.shield.tick();
+        assertEquals(2,this.shield.getTicks());
+        this.shield.tick();
+        this.shield.tick();
+        assertEquals(0, this.shield.getTicks());
     }
-
+    
     @Test
-    public void tuhoutuuJosTormayksenJalkeenHponPienempiKuinNolla() {
-        this.mine.onCollision(new PlayerProjectile(0, 0, 0, 0, 0, 0, 100));
-        assertEquals(false, this.mine.isAlive());
+    public void tuhoutuuKunTickitNolla(){
+        this.shield.tick();
+        this.shield.tick();
+        this.shield.tick();
+        assertEquals(false,this.shield.isAlive());
     }
 }

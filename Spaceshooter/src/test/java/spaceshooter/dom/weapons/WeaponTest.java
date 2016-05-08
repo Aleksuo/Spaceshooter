@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceshooter.dom;
+package spaceshooter.dom.weapons;
 
 import spaceshooter.dom.weapons.Weapon;
 import org.junit.After;
@@ -11,6 +11,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import spaceshooter.dom.Player;
 import static org.junit.Assert.*;
 
 /**

@@ -14,6 +14,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import spaceshooter.dom.enemys.Enemy;
+import spaceshooter.dom.pickups.Charge;
+import spaceshooter.dom.projectiles.EnemyProjectile;
 
 /**
  *
@@ -52,12 +54,18 @@ public class PlayerTest {
     public void pelaajallaKolmeAlustaAlussa() {
         assertEquals(3, player.getShips());
     }
+    
 
-    /*@Test
-     public void pelaajallaKolmeLataustaAlussa() {
-     assertEquals(3, player.getCharges());
+    @Test
+     public void pelaajallaErikoistaito() {
+         assertNotNull(this.player.getSpecial());
      }
-     */
+     
+     @Test
+     public void pelaajallaAse(){
+         assertNotNull(this.player.getSpecial());
+     }
+     
     @Test
     public void pelaajaElossaLuonnissa() {
         assertEquals(true, player.isAlive());
@@ -71,12 +79,26 @@ public class PlayerTest {
         player.onCollision(dummy);
         assertEquals(1, player.getShips());
     }
+    
+    @Test
+    public void tormaysVihollisAmmuskeenVahentaaAluksia(){
+        player.onCollision(new EnemyProjectile(0,0,0,0,0,0,0));
+        assertEquals(2, player.getShips());
+    }
 
     @Test
     public void tormaysPaivitykseenPaivittaaAsetta() {
         this.player.onCollision(new Update(0, 0, 0, 0, 0, 0));
         assertEquals(1, this.player.getWeapon().getUpgrades());
 
+    }
+    
+    
+    @Test
+    public void tormaysLataukseenLisaaLatauksia(){
+        this.player.getSpecial().setCharges(1);
+        this.player.onCollision(new Charge(0,0,0,0,0,0));
+        assertEquals(2, this.player.getSpecial().getCharges());
     }
 
     @Test

@@ -58,6 +58,8 @@ public class ScorecounterTest {
         assertEquals(100, counter.getScore());
         counter.add(150);
         assertEquals(250, counter.getScore());
+        counter.add(1);
+        assertEquals(251, counter.getScore());
     }
 
     @Test
@@ -77,6 +79,7 @@ public class ScorecounterTest {
         assertEquals(250, counter.getScore());
         counter.reduce(250);
         assertEquals(0, counter.getScore());
+        
     }
 
     @Test

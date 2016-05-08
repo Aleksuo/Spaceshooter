@@ -94,4 +94,30 @@ public class Special {
         this.charges = charges;
     }
 
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
+
+    public double getLastFired() {
+        return lastFired;
+    }
+
+    public void setLastFired(double lastFired) {
+        this.lastFired = lastFired;
+    }
+
+    public double getDelay() {
+        return delay;
+    }
+
+    public void setDelay(double delay) {
+        this.delay = delay;
+    }
+    
+    
+
 }

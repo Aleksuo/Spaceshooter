@@ -8,7 +8,6 @@ package spaceshooter.dom.weapons;
 import spaceshooter.dom.GameObject;
 import spaceshooter.dom.Level;
 import spaceshooter.dom.Player;
-import spaceshooter.dom.weapons.Weapon;
 import spaceshooter.dom.projectiles.EnemyProjectile;
 
 /**

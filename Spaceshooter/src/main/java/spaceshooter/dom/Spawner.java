@@ -36,4 +36,14 @@ public class Spawner {
         enemy.setPosY(y);
         return enemy;
     }
+
+    public Enemy getPrototype() {
+        return prototype;
+    }
+
+    public void setPrototype(Enemy prototype) {
+        this.prototype = prototype;
+    }
+    
+    
 }

@@ -13,6 +13,9 @@ import java.awt.Point;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import spaceshooter.dom.enemys.Enemy;
+import spaceshooter.dom.pickups.Charge;
+import spaceshooter.dom.specials.ShieldSpecial;
+import spaceshooter.dom.specials.Special;
 
 /**
  * Object that can be controlled with user input.
@@ -21,8 +24,8 @@ import spaceshooter.dom.enemys.Enemy;
 public class Player extends ImageObject {
 
     private int ships;
-    private int charges;
     private Weapon weapon;
+    private Special special;
 
     /**
      * Constructor for Player.
@@ -38,8 +41,9 @@ public class Player extends ImageObject {
         ImageIcon icon = new ImageIcon(url);
         this.setSprite(icon.getImage());
         this.ships = 3;
-        this.charges = 3;
         this.weapon = new PlayerWeapon(this, 5, 25);
+        this.special = new ShieldSpecial(this, 5);
+
     }
 
     @Override
@@ -54,12 +58,18 @@ public class Player extends ImageObject {
 
     @Override
     public void onCollision(GameObject obj) {
-        if (obj instanceof Enemy) {
-            this.destroyShip();
-        } else if (obj instanceof Update) {
+        if (this.isCollisionOn()) {
+            if (obj instanceof Enemy) {
+                this.destroyShip();
+            } else if (obj instanceof EnemyProjectile) {
+                this.destroyShip();
+            }
+        }
+
+        if (obj instanceof Update) {
             this.weapon.upgrade();
-        } else if (obj instanceof EnemyProjectile) {
-            this.destroyShip();
+        } else if (obj instanceof Charge) {
+            this.special.charge();
         }
 
     }
@@ -73,6 +83,14 @@ public class Player extends ImageObject {
         if (this.ships < 1) {
             this.setIsAlive(false);
         }
+    }
+
+    public Special getSpecial() {
+        return special;
+    }
+
+    public void setSpecial(Special special) {
+        this.special = special;
     }
 
     public int getShips() {
@@ -89,14 +107,6 @@ public class Player extends ImageObject {
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
-    }
-
-    public int getCharges() {
-        return charges;
-    }
-
-    public void setCharges(int charges) {
-        this.charges = charges;
     }
 
 }

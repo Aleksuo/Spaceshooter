@@ -71,7 +71,7 @@ public class Level {
         g.setColor(Color.WHITE);
         g.drawString("Score: " + Integer.toString(this.score.getScore()), 32, 32);
         g.drawString("Ships: " + Integer.toString(this.player.getShips()), 600, 32);
-        g.drawString("Charges: " + Integer.toString(this.player.getCharges()), 700, 32);
+        g.drawString("Charges: " + Integer.toString(this.player.getSpecial().getCharges()), 700, 32);
 
     }
 

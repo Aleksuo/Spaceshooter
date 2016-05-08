@@ -19,6 +19,7 @@ abstract public class GameObject {
     private int height;
 
     private boolean isAlive;
+    private boolean collisionOn;
 
     /**
      * Constructor for GameObject.
@@ -41,6 +42,7 @@ abstract public class GameObject {
         this.height = h;
 
         this.isAlive = true;
+        this.collisionOn = true;
     }
 
     /**
@@ -135,6 +137,14 @@ abstract public class GameObject {
 
     public void setIsAlive(boolean isAlive) {
         this.isAlive = isAlive;
+    }
+
+    public boolean isCollisionOn() {
+        return collisionOn;
+    }
+
+    public void setCollisionOn(boolean collisionOn) {
+        this.collisionOn = collisionOn;
     }
 
     public Rectangle getHitbox() {

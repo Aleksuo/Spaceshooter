@@ -10,6 +10,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import spaceshooter.dom.GameObject;
 import spaceshooter.dom.Player;
+import spaceshooter.dom.Shield;
 
 /**
  * Projectile spawned by EnemyWeapon.
@@ -34,10 +35,12 @@ public class EnemyProjectile extends Projectile {
         ImageIcon icon = new ImageIcon(url);
         this.setSprite(icon.getImage());
     }
-
+    
     @Override
     public void onCollision(GameObject obj) {
         if (obj instanceof Player) {
+            this.setIsAlive(false);
+        } else if (obj instanceof Shield) {
             this.setIsAlive(false);
         }
     }

@@ -46,8 +46,11 @@ public class Levelmanager {
     }
 
     public void handleInput(KeyManager km, Point point) {
-        if (km.isPressed(KeyEvent.VK_SPACE)) {
+        if (km.isPressed(KeyEvent.VK_W)) {
             this.level.getPlayer().getWeapon().shoot(level);
+        }
+        if (km.isPressed(KeyEvent.VK_SPACE)) {
+            this.level.getPlayer().getSpecial().trigger(level);
         }
         this.level.setMouse(point);
     }

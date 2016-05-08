@@ -12,16 +12,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import spaceshooter.dom.pickups.Pickup;
 
 /**
  *
  * @author Aleksi
  */
-public class UpdateTest {
+public class PickupTest {
 
-    private Update update;
+    private Pickup update;
 
-    public UpdateTest() {
+    public PickupTest() {
     }
 
     @BeforeClass
@@ -34,7 +35,7 @@ public class UpdateTest {
 
     @Before
     public void setUp() {
-        this.update = new Update(12, 13, 5, 5, 32, 32);
+        this.update = new Pickup(12, 13, 5, 5, 32, 32);
     }
 
     @After

@@ -53,11 +53,11 @@ public class PlayerTest {
         assertEquals(3, player.getShips());
     }
 
-    @Test
-    public void pelaajallaKolmeLataustaAlussa() {
-        assertEquals(3, player.getCharges());
-    }
-
+    /*@Test
+     public void pelaajallaKolmeLataustaAlussa() {
+     assertEquals(3, player.getCharges());
+     }
+     */
     @Test
     public void pelaajaElossaLuonnissa() {
         assertEquals(true, player.isAlive());

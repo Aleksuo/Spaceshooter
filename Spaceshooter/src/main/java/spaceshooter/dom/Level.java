@@ -1,41 +1,25 @@
 package spaceshooter.dom;
-
-import spaceshooter.dom.enemys.Saucer;
 import java.awt.Color;
-
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.net.URL;
-
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import javax.swing.ImageIcon;
-
-import javax.swing.JPanel;
 import spaceshooter.logic.Scorecounter;
-
 import spaceshooter.util.Collision;
-
 /**
  * Class that holds data for a level.
- *
  */
 public class Level {
-
     private Player player;
     private ConcurrentLinkedQueue<GameObject> objektit;
-
     private Scorecounter score;
     private Image background;
-
     private int width;
     private int height;
-
     private Point mouse;
-
     /**
      * Levels constructor.
      */
@@ -43,16 +27,12 @@ public class Level {
         this.width = 800;
         this.height = 640;
         this.score = new Scorecounter();
-
         URL url = this.getClass().getResource("/Sprites/background.png");
         ImageIcon icon = new ImageIcon(url);
         this.background = icon.getImage();
-
         this.player = new Player(0, 0, 32, 32);
         this.objektit = new ConcurrentLinkedQueue<GameObject>();
-
         this.objektit.add(player);
-
     }
 
     /**
@@ -62,17 +42,13 @@ public class Level {
      */
     public void draw(Graphics g) {
         g.drawImage(background, 0, 0, null);
-
         for (GameObject o : objektit) {
-
             o.draw(g);
         }
-
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         g.drawString("Score: " + Integer.toString(this.score.getScore()), 32, 32);
         g.drawString("Ships: " + Integer.toString(this.player.getShips()), 600, 32);
         g.drawString("Charges: " + Integer.toString(this.player.getSpecial().getCharges()), 700, 32);
-
     }
 
     /**
@@ -96,9 +72,11 @@ public class Level {
                 o.setIsAlive(false);
             }
         }
-
     }
 
+    /**
+     * Returns player to the screen.
+     */
     private void keepPlayerInsideLevel() {
         if (this.player.getPosX() < 0) {
             this.player.setPosX(0);
@@ -112,17 +90,19 @@ public class Level {
 
     }
 
+    /**
+     * Checks when a GameObject has moved out of screen.
+     * @param obj GameObject that is checked.
+     * @return Returns true if object was out, else false.
+     */
     private boolean checkIfOutsideScreen(GameObject obj) {
         if (obj.getPosX() < 0 || obj.getPosX() > this.getWidth()) {
             return true;
         }
-
         if (obj.getPosY() < 0 || obj.getPosY() > this.getHeight()) {
             return true;
         }
-
         return false;
-
     }
 
     /**
@@ -136,17 +116,12 @@ public class Level {
                         if (Collision.isCollision(t.getHitbox(), o.getHitbox())) {
                             o.onCollision(t);
                             t.onCollision(o);
-
                         }
-
                     }
                 }
-
             }
-
         }
     }
-
     /**
      * Removes dead GameObjects and calls objects onDeath() method.
      */
@@ -156,7 +131,6 @@ public class Level {
             if (!obj.isAlive()) {
                 obj.onDeath(this);
                 iterator.remove();
-
             }
         }
     }
@@ -184,10 +158,8 @@ public class Level {
     public void setScore(Scorecounter score) {
         this.score = score;
     }
-
     /**
      * Adds a GameObject to level.
-     *
      * @param obj GameObject to be added.
      */
     public void addObject(GameObject obj) {
@@ -202,7 +174,6 @@ public class Level {
         this.background = background;
     }
 
-    //todo tee omaan luokkaan listenerit
     public int getWidth() {
         return width;
     }
@@ -226,5 +197,4 @@ public class Level {
     public void setMouse(Point mouse) {
         this.mouse = mouse;
     }
-
 }

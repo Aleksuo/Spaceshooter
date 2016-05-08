@@ -1,5 +1,6 @@
 package spaceshooter.spaceshooter;
 
+import spaceshooter.input.KeyManager;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.WindowEvent;

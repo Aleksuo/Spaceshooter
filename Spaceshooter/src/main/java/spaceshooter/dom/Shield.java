@@ -1,22 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.dom;
 
 import java.net.URL;
 import javax.swing.ImageIcon;
 
 /**
+ * Absorbs taken damage for a certain time.
  *
- * @author Aleksi
  */
 public class Shield extends ImageObject {
 
     private int ticks;
     private GameObject parent;
 
+    /**
+     * Constructor for Shield.
+     *
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param vx x-velocity.
+     * @param vy y-velocity.
+     * @param w Hitbox widht.
+     * @param h Hitbox height.
+     * @param ticks Ticks alive.
+     * @param parent Parent of this object.
+     */
     public Shield(float x, float y, float vx, float vy, int w, int h, int ticks, GameObject parent) {
         super(x, y, vx, vy, w, h);
         this.ticks = ticks;
@@ -38,11 +45,15 @@ public class Shield extends ImageObject {
         this.parent.setCollisionOn(true);
     }
 
+    @Override
     public void move() {
         this.setPosX(this.parent.getPosX() - 16);
         this.setPosY(this.parent.getPosY() - 16);
     }
 
+    /**
+     * Reduces ticks by one every frame.
+     */
     public void tick() {
         this.ticks--;
         if (this.ticks < 1) {

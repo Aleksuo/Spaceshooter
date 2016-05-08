@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.states;
 
 import java.awt.Font;
@@ -14,16 +9,21 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 
 import spaceshooter.managers.StateManager;
-import spaceshooter.spaceshooter.KeyManager;
+import spaceshooter.input.KeyManager;
 
 /**
+ * State that is used when in menu.
  *
- * @author Aleksi
  */
 public class MenuState extends GameState {
 
     private Image background;
 
+    /**
+     * Constructor for MenuState.
+     *
+     * @param manager Apps StateManager.
+     */
     public MenuState(StateManager manager) {
         super(manager);
 
@@ -36,9 +36,6 @@ public class MenuState extends GameState {
     @Override
     public void entering() {
 
-        //this.window.getFrame().show();
-        //this.window.getFrame().pack();
-        //this.window.getFrame().setSize(new Dimension(600, 300));
     }
 
     @Override

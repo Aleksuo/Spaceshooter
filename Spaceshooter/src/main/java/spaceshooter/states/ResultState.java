@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spaceshooter.states;
 
 import com.sun.glass.events.KeyEvent;
@@ -10,16 +5,22 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import spaceshooter.managers.StateManager;
-import spaceshooter.spaceshooter.KeyManager;
+import spaceshooter.input.KeyManager;
 
 /**
+ * State that is displayed after GameplayState.Displays players achieved score.
  *
- * @author Aleksi
  */
 public class ResultState extends GameState {
 
     private int score;
 
+    /**
+     * Constructor for ResultState.
+     *
+     * @param manager Apps StateManager.
+     * @param score Achieved score.
+     */
     public ResultState(StateManager manager, int score) {
         super(manager);
         this.score = score;
@@ -52,6 +53,7 @@ public class ResultState extends GameState {
     @Override
     public void handleInput(KeyManager km, Point point) {
         if (km.isPressed(KeyEvent.VK_R)) {
+            this.getStateManager().popState();
             this.getStateManager().pushState(new GameplayState(this.getStateManager()));
         } else if (km.isPressed(KeyEvent.VK_M)) {
             this.getStateManager().popState();

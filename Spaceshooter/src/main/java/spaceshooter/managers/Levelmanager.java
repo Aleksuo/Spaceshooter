@@ -4,14 +4,14 @@ import com.sun.glass.events.KeyEvent;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.PriorityQueue;
-import javafx.scene.input.KeyCode;
+
 import spaceshooter.commands.Command;
 import spaceshooter.commands.SpawnEnemyCommand;
 import spaceshooter.dom.GameObject;
 import spaceshooter.dom.Level;
 import spaceshooter.dom.enemys.Enemy;
-import spaceshooter.dom.enemys.Mine;
-import spaceshooter.spaceshooter.KeyManager;
+
+import spaceshooter.input.KeyManager;
 import spaceshooter.util.LevelLoader;
 import spaceshooter.util.Timer;
 
@@ -41,10 +41,21 @@ public class Levelmanager {
         this.timer = new Timer();
     }
 
+    /**
+     * Renders the level.
+     *
+     * @param g Graphics object.
+     */
     public void render(Graphics g) {
         this.level.draw(g);
     }
 
+    /**
+     * Handles input.
+     *
+     * @param km Apps KeyManager.
+     * @param point Mouses current position.
+     */
     public void handleInput(KeyManager km, Point point) {
         if (km.isPressed(KeyEvent.VK_W)) {
             this.level.getPlayer().getWeapon().shoot(level);
@@ -89,6 +100,11 @@ public class Levelmanager {
 
     }
 
+    /**
+     * Checks if the game is over.
+     *
+     * @return Returns true if game is over, else false.
+     */
     public boolean checkIfIsOver() {
         if (!this.level.getPlayer().isAlive()) {
             return true;

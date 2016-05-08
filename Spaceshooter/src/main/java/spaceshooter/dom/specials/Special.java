@@ -10,8 +10,8 @@ import spaceshooter.dom.Level;
 import spaceshooter.util.Timer;
 
 /**
+ * Baseclass for Specials.
  *
- * @author Aleksi
  */
 public class Special {
 
@@ -22,6 +22,12 @@ public class Special {
     private double lastFired;
     private double delay;
 
+    /**
+     * Constructor for Special.
+     *
+     * @param parent Parent of this Special.
+     * @param delay Delay between uses.
+     */
     public Special(GameObject parent, double delay) {
         this.parent = parent;
         this.charges = 3;
@@ -30,6 +36,11 @@ public class Special {
         this.lastFired = this.timer.elapsedTimeInSeconds();
     }
 
+    /**
+     * Triggers special.
+     *
+     * @param level Current level.
+     */
     public void trigger(Level level) {
         if (this.getParent().isAlive() && this.charges > 0) {
             double deltaTime = this.timer.elapsedTimeInSeconds() - lastFired;
@@ -41,15 +52,26 @@ public class Special {
         }
     }
 
+    /**
+     * Spawns special to the level.
+     *
+     * @param level Current level.
+     */
     public void spawnSpecial(Level level) {
     }
 
+    /**
+     * Decreases charges by one. Called when special is triggered.
+     */
     public void discharge() {
         if (this.charges > 0) {
             this.charges--;
         }
     }
 
+    /**
+     * Increases charges by one.
+     */
     public void charge() {
         if (this.charges < 3) {
             this.charges++;

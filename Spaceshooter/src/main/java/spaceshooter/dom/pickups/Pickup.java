@@ -5,16 +5,14 @@
  */
 package spaceshooter.dom.pickups;
 
-import java.net.URL;
-import javax.swing.ImageIcon;
 import spaceshooter.dom.GameObject;
 import spaceshooter.dom.ImageObject;
 import spaceshooter.dom.Level;
 import spaceshooter.dom.Player;
 
 /**
+ * Baseclass for pickup-objects.
  *
- * @author Aleksi
  */
 public class Pickup extends ImageObject {
 
@@ -22,6 +20,16 @@ public class Pickup extends ImageObject {
     private float beginX;
     private float beginY;
 
+    /**
+     * Constructor for Pickup.
+     *
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param vx x-velocity.
+     * @param vy y-velocity.
+     * @param w Hitbox width.
+     * @param h Hitbox height.
+     */
     public Pickup(float x, float y, float vx, float vy, int w, int h) {
         super(x, y, vx, vy, w, h);
 

@@ -11,12 +11,14 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
+ * Window for the App.
  *
- * @author Aleksi
  */
 public class Window {
 
@@ -26,6 +28,12 @@ public class Window {
     private int width;
     private int height;
 
+    /**
+     * Constructor for Window.
+     *
+     * @param width Width of the window.
+     * @param height Height of the window.
+     */
     public Window(int width, int height) {
         Dimension dim = new Dimension(width, height);
         this.width = width;
@@ -35,8 +43,13 @@ public class Window {
 
     }
 
+    /**
+     * Initializes the window.
+     *
+     * @param dim Dimensions of the window.
+     */
     private void initWindow(Dimension dim) {
-        this.frame = new JFrame("Shmup");
+        this.frame = new JFrame("Spaceshooter");
         this.frame.setSize(dim);
         this.frame.setResizable(false);
         this.frame.setLocationRelativeTo(null);
@@ -49,9 +62,18 @@ public class Window {
                 cursorImg, new Point(0, 0), "blank cursor");
         this.frame.getContentPane().setCursor(blankCursor);
 
+        URL url = this.getClass().getResource("/Sprites/alus.png");
+        ImageIcon icon = new ImageIcon(url);
+        this.frame.setIconImage(icon.getImage());
+
         frame.pack();
     }
 
+    /**
+     * Initializes the canvas.
+     *
+     * @param dim Dimensions of the canvas.
+     */
     private void initCanvas(Dimension dim) {
         this.canvas = new Canvas();
         this.canvas.setPreferredSize(dim);

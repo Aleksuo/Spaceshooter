@@ -3,23 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spaceshooter.spaceshooter;
+package spaceshooter.input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
+ * KeyListener for key input.
  *
- * @author Aleksi
  */
 public class KeyManager implements KeyListener {
 
     private boolean[] keys;
 
+    /**
+     * Constructor for KeyManager.
+     */
     public KeyManager() {
         this.keys = new boolean[256];
     }
 
+    /**
+     * Checks if key is pressed.
+     *
+     * @param keycode KeyEvent keycode.
+     * @return Returns true if key is pressed else false.
+     */
     public boolean isPressed(int keycode) {
         return keys[keycode];
     }

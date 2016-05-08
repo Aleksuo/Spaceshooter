@@ -10,11 +10,17 @@ import spaceshooter.dom.Level;
 import spaceshooter.dom.Shield;
 
 /**
+ * Special that gives GameObject invincibility for a certain time.
  *
- * @author Aleksi
  */
 public class ShieldSpecial extends Special {
 
+    /**
+     * Constructor for ShieldSpecial.
+     *
+     * @param parent Parent of this Special.
+     * @param delay Delay between uses.
+     */
     public ShieldSpecial(GameObject parent, double delay) {
         super(parent, delay);
 
